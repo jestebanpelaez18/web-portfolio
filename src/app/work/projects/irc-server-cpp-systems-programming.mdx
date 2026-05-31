@@ -1,0 +1,41 @@
+---
+title: "IRC Server from Scratch in C++"
+publishedAt: "2024-11-10"
+summary: "Implemented a multi-client IRC server in C++ with non-blocking I/O, robust command parsing, and stable behavior under concurrent traffic."
+images:
+  - "/images/projects/project-01/cover-04.jpg"
+  - "/images/projects/project-01/video-01.mp4"
+team:
+  - name: "Juan Esteban Pelaez"
+    role: "Systems Programmer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
+link: "https://github.com/jestebanpelaez18/ft_irc"
+---
+
+## Overview
+
+This project is a full IRC server implementation in modern C++, built from first principles on Linux. The focus was systems-level reliability, protocol correctness, and concurrent client management over TCP/IP.
+
+## Key Features
+
+- Implemented core IRC command parsing and channel management for multi-user chat sessions.
+- Managed simultaneous client connections with non-blocking I/O.
+- Added signal handling and connection lifecycle control to improve server stability.
+- Debugged and optimized runtime behavior under high message throughput.
+
+## Technologies Used
+
+- C++
+- Linux
+- TCP/IP sockets
+- Non-blocking I/O
+- Network protocol parsing
+
+## Challenges and Learnings
+
+The most demanding aspect was concurrency and state consistency across active channels and users. Solving race-like behavior in asynchronous flows strengthened my understanding of low-level networking, state machines, and defensive debugging.
+
+## Outcome
+
+The final server supports multiple concurrent clients, handles core IRC interactions reliably, and demonstrates strong systems programming fundamentals in real-world networking scenarios.
