@@ -4,7 +4,7 @@ const person: Person = {
   firstName: "Juan Esteban",
   lastName: "Pelaez",
   name: `Juan Esteban Pelaez`,
-  role: "Software Engineer",
+  role: "Full-Stack Engineer (Backend and Data)",
   avatar: "/images/avatar.png",
   email: "juanes.pelaez18@gmail.com",
   location: "Europe/Helsinki", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -47,7 +47,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building reliable products across web and data systems</>,
+  headline: <>I build reliable products from APIs to data pipelines</>,
   featured: {
     display: false,
     title: <>Featured project</>,
@@ -55,9 +55,9 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Juan Esteban, a software engineer based in Helsinki. I build full-stack
-      products, APIs, and data pipelines with a focus on reliability, performance,
-      and clean architecture.
+      I'm Juan Esteban, a software engineer based in Helsinki. I work across
+      full-stack development, backend architecture, and data engineering. I'm
+      currently open to full-time and freelance opportunities.
     </>
   ),
 };
@@ -66,7 +66,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `${person.name} is a ${person.role} based in Helsinki`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -83,10 +83,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I am a Helsinki-based software engineer with hands-on experience building
-        production web applications and data platforms. I work comfortably across
-        frontend, backend, and data engineering, integrating APIs, managing
-        databases, and deploying containerized systems with CI/CD.
+        I started in systems-heavy projects with C and C++, then moved into
+        production web and data engineering. Today I build end-to-end products:
+        backend services, full-stack applications, and data pipelines. I care
+        about clean architecture, reliable deployments, and shipping software that
+        solves real problems.
       </>
     ),
   },
@@ -171,7 +172,7 @@ const about: About = {
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Technical Skills",
     skills: [
       {
         title: "Full Stack Development",
@@ -247,11 +248,12 @@ const about: About = {
         ],
       },
       {
-        title: "Infrastructure and Quality",
+        title: "Systems, Infrastructure, and Quality",
         description: (
           <>
-            Containerized deployments, CI/CD automation, testing, and debugging
-            workflows focused on shipping reliable software.
+            C/C++ systems programming background, containerized deployments,
+            CI/CD automation, testing, and debugging workflows focused on
+            shipping reliable software.
           </>
         ),
         tags: [
