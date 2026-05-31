@@ -1,4 +1,4 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
@@ -31,6 +31,15 @@ export default function Work() {
       <Heading marginBottom="l" variant="heading-strong-xl" align="center">
         {work.title}
       </Heading>
+      <Text
+        align="center"
+        onBackground="neutral-weak"
+        variant="body-default-l"
+        marginBottom="xl"
+      >
+        A selection of backend, full-stack, and data engineering projects focused
+        on production reliability.
+      </Text>
       <Projects />
     </Column>
   );

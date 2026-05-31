@@ -4,7 +4,7 @@ const person: Person = {
   firstName: "Juan Esteban",
   lastName: "Pelaez",
   name: `Juan Esteban Pelaez`,
-  role: "Full-Stack Engineer (Backend and Data)",
+  role: "Full-Stack Engineer | Backend and Data",
   avatar: "/images/avatar.png",
   email: "juanes.pelaez18@gmail.com",
   location: "Europe/Helsinki", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -53,9 +53,9 @@ const home: Home = {
   subline: (
     <>
       I'm Juan Esteban, a Helsinki-based engineer working across full-stack,
-      backend, and data. I build production apps end to end, from API design and
-      system architecture to deployment and observability. I'm currently open to
-      full-time and freelance opportunities.
+      backend, and data. I build production software end to end, from API design
+      and architecture to deployment and observability. I'm open to full-time and
+      freelance opportunities.
     </>
   ),
 };
@@ -82,10 +82,10 @@ const about: About = {
     description: (
       <>
         My background started in systems-heavy C/C++ projects at Hive Helsinki,
-        and evolved into production web and data engineering. Today I build
-        end-to-end software: backend services, full-stack applications, and data
-        pipelines. I care about clear architecture, reliability under load, and
-        shipping software that creates real business value.
+        then evolved into production web and data engineering. Today I build
+        backend services, full-stack applications, and data pipelines. I care
+        about clear architecture, reliability under load, and software that solves
+        real business problems.
       </>
     ),
   },
@@ -284,8 +284,8 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Full-stack and data engineering projects by ${person.name}`,
+  title: "Selected Projects",
+  description: `Backend, full-stack, and data engineering projects by ${person.name}`,
 };
 
 const gallery: Gallery = {
