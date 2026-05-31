@@ -18,9 +18,6 @@ const newsletter: Newsletter = {
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
@@ -47,7 +44,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>I build reliable products from APIs to data pipelines</>,
+  headline: <>I turn complex systems into reliable products</>,
   featured: {
     display: false,
     title: <>Featured project</>,
@@ -55,9 +52,10 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Juan Esteban, a software engineer based in Helsinki. I work across
-      full-stack development, backend architecture, and data engineering. I'm
-      currently open to full-time and freelance opportunities.
+      I'm Juan Esteban, a Helsinki-based engineer working across full-stack,
+      backend, and data. I build production apps end to end, from API design and
+      system architecture to deployment and observability. I'm currently open to
+      full-time and freelance opportunities.
     </>
   ),
 };
@@ -83,11 +81,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I started in systems-heavy projects with C and C++, then moved into
-        production web and data engineering. Today I build end-to-end products:
-        backend services, full-stack applications, and data pipelines. I care
-        about clean architecture, reliable deployments, and shipping software that
-        solves real problems.
+        My background started in systems-heavy C/C++ projects at Hive Helsinki,
+        and evolved into production web and data engineering. Today I build
+        end-to-end software: backend services, full-stack applications, and data
+        pipelines. I care about clear architecture, reliability under load, and
+        shipping software that creates real business value.
       </>
     ),
   },
@@ -114,10 +112,9 @@ const about: About = {
           </>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
           {
             src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Arabian Fragance Company Project",
+            alt: "Arabian Fragrance Company Project",
             width: 16,
             height: 9,
           },
@@ -217,7 +214,8 @@ const about: About = {
         description: (
           <>
             Built end-to-end pipelines using Python, PySpark, Airflow, PostgreSQL,
-            dbt, and Azure Blob Storage for batch and analytical workloads.
+            dbt, and Azure Blob Storage for batch and analytical workloads,
+            including a SparkML model with AUC 0.92.
           </>
         ),
         tags: [
@@ -281,8 +279,6 @@ const blog: Blog = {
   label: "Blog",
   title: "Engineering notes and project learnings",
   description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
 };
 
 const work: Work = {
@@ -290,8 +286,6 @@ const work: Work = {
   label: "Work",
   title: `Projects – ${person.name}`,
   description: `Full-stack and data engineering projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
 };
 
 const gallery: Gallery = {
@@ -299,8 +293,6 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `Snapshots, experiments, and visual notes by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
   images: [
     {
       src: "/images/gallery/horizontal-1.jpg",
