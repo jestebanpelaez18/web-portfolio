@@ -1,0 +1,58 @@
+---
+title: "Inception: Docker Infrastructure from Scratch"
+publishedAt: "2024-08-01"
+summary: "Set up a multi-container infrastructure using Docker Compose with custom-built images for NGINX, WordPress, and MariaDB on Alpine Linux."
+images:
+  - "/images/projects/inception/diagram-01.png"
+team:
+  - name: "Juan Esteban Pelaez"
+    role: "Systems Administrator"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
+link: "https://github.com/jestebanpelaez18/42Course-Inception"
+---
+
+## Overview
+
+Inception is a system administration project focused on containerization 
+and infrastructure design. The goal was to set up a small but complete 
+multi-service infrastructure using Docker Compose, with every image 
+built from scratch — no pulling from DockerHub.
+
+## Key Features
+
+- Built custom Docker images from Alpine Linux for each service, 
+  writing all Dockerfiles from scratch without using pre-built images.
+- Set up NGINX with TLSv1.2/TLSv1.3 only as the single entry point 
+  for all incoming traffic.
+- Configured WordPress with php-fpm in an isolated container without 
+  NGINX, communicating only through the internal Docker network.
+- Set up MariaDB in a dedicated container as the database backend 
+  for WordPress.
+- Created persistent Docker volumes for the WordPress database and 
+  website files to survive container restarts.
+- Connected all services through a custom Docker network with no 
+  direct exposure between containers except through defined interfaces.
+
+## Technologies Used
+
+- Docker
+- Docker Compose
+- Alpine Linux
+- NGINX
+- WordPress with php-fpm
+- MariaDB
+- TLS configuration
+
+## Challenges and Learnings
+
+The main challenge was understanding how containers communicate 
+securely through internal networks without exposing services directly. 
+Writing all Dockerfiles from scratch on Alpine reinforced how 
+containerized environments are built and layered from the ground up.
+
+## Outcome
+
+A fully functional multi-service infrastructure running WordPress 
+over HTTPS, with isolated containers, persistent storage, and a 
+clean network architecture — all built without any pre-made images.

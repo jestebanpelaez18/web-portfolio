@@ -1,0 +1,62 @@
+---
+title: "Minishell: Custom Unix Shell in C"
+publishedAt: "2024-06-15"
+summary: "Built a fully functional Bash-like shell in C from scratch, implementing command parsing, piping, redirections, and process management. Scored 101/100."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Juan Esteban Pelaez"
+    role: "Systems Programmer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
+link: "https://github.com/jestebanpelaez18/42Course-Minishell"
+---
+
+## Overview
+
+Minishell is a lightweight Unix shell built from scratch in C, 
+modeled after Bash. Developed as part of the 42 curriculum under 
+strict constraints — no for loops, limited library functions, 
+everything built from the ground up. The project scored 101/100.
+
+My primary focus was leading the architectural design, implementing 
+the pipe functionality, and bug hunting across the full codebase.
+
+## Key Features
+
+- Built a lexical parser to handle quotes, environment variable 
+  expansion, and complex shell expressions from scratch.
+- Implemented command piping using pipes and file descriptor 
+  manipulation, allowing seamless chaining of multiple commands.
+- Supported full I/O redirection with operators for input, output, 
+  and append modes.
+- Implemented environment variable management including PATH 
+  resolution, export, and unset.
+- Added signal handling for Ctrl+C, Ctrl+D, and Ctrl+\\ matching 
+  Bash behavior.
+- Built command history navigation using arrow keys.
+- Zero memory leaks, no segfaults, no freezes under normal and 
+  edge-case usage.
+
+## Technologies Used
+
+- C
+- Unix system calls
+- Process management with fork and exec
+- File descriptor manipulation
+- Signal handling
+- Linux and macOS
+
+## Challenges and Learnings
+
+The hardest part was the lexical parser — handling all combinations 
+of quotes, expansions, and edge cases correctly while staying within 
+the strict 42 norm constraints. Building the pipe logic required 
+careful management of file descriptors and process lifecycles to 
+avoid leaks and deadlocks.
+
+## Outcome
+
+A fully functional shell that passes all mandatory and bonus 
+requirements, handles edge cases gracefully, and demonstrates deep 
+understanding of Unix process management and systems programming in C.
