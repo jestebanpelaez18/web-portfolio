@@ -14,7 +14,7 @@ const person: Person = {
   lastName: "Pelaez",
   name: `Juan Esteban Pelaez`,
   role: "Full-Stack Engineer | Backend and Data",
-  avatar: "/images/avatar.png",
+  avatar: "/images/avatar-v2.png",
   email: "juanes.pelaez18@gmail.com",
   location: "Europe/Helsinki", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Spanish"], // optional: Leave the array empty if you don't want to display languages
@@ -61,14 +61,11 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Juan Esteban, a software engineer based in Helsinki. I work across
-      full-stack development and data engineering, from backend APIs and data
-      pipelines to frontend interfaces and deployment. My foundation comes from
-      intensive systems programming in C and C++ at Hive Helsinki, and I have
-      since built real products using TypeScript, React, Python, and modern data
-      tools. I enjoy working on technically challenging problems and taking full
-      ownership of what I build. Currently open to full-time roles and freelance
-      projects.
+      I'm Juan Esteban, a software engineer based in Helsinki. I build
+      full-stack products, backend systems, and data pipelines with a strong
+      focus on reliability. My background in C/C++ systems programming shapes
+      how I design and ship production software. Open to full-time and
+      freelance opportunities.
     </>
   ),
 };
