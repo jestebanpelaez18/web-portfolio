@@ -195,7 +195,7 @@ const about: About = {
           { name: "Python", icon: "python" },
           { name: "TypeScript", icon: "typescript" },
           { name: "JavaScript", icon: "javascript" },
-          { name: "C/C++", icon: "c" },
+          { name: "C/C++", icon: "cpp" },
           { name: "SQL", icon: "sql" },
           { name: "Bash", icon: "bash" },
         ],
@@ -257,10 +257,13 @@ const about: About = {
         description: (
           <>
             Automated testing, unit testing, CI/CD pipelines, debugging, log
-            analysis, Postman
+            analysis, Postman, and Playwright
           </>
         ),
-        tags: [{ name: "Postman", icon: "postman" }],
+        tags: [
+          { name: "Postman", icon: "postman" },
+          { name: "Playwright", icon: "playwright" },
+        ],
         images: [],
       },
       {
@@ -268,7 +271,7 @@ const about: About = {
         description: (
           <>
             Actively uses Claude, GitHub Copilot, and Gemini as core parts of
-            the development workflow — for code generation, debugging,
+            the development workflow; for code generation, agentic code, debugging,
             architecture decisions, and accelerating delivery.
           </>
         ),
