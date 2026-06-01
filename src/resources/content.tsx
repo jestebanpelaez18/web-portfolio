@@ -94,22 +94,20 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I'm Juan Esteban, a software engineer based in Helsinki, originally 
-        from Spain. My path into software started during my Mechanical 
-        Engineering studies, where different engineering projects brought me 
-        into contact with programming for the first time, through electronics, 
-        embedded systems, and data work. That curiosity led me to make a full 
-        transition into software. I moved to Finland and spent three years at 
-        Hive Helsinki, a project-based engineering school part of the global 
-        42 network, where I built strong foundations in C and C++, systems 
-        programming, and solving hard problems from scratch.
-
-        Since completing the program in November 2025, I have been working as a
-        freelance full-stack developer and building personal projects in data
-        engineering. I enjoy technically challenging work and taking full
-        ownership of what I build. Outside of work I stay active with football,
-        gym, running, and snowboarding. Currently open to full-time roles and
-        freelance projects.
+        I'm Juan Esteban, a software engineer based in Helsinki, originally from
+        Spain. My path into software started during my Mechanical Engineering
+        studies, where different engineering projects brought me into contact
+        with programming for the first time, through electronics, embedded
+        systems, and data work. That curiosity led me to make a full transition
+        into software. I moved to Finland and spent three years at Hive
+        Helsinki, a project-based engineering school part of the global 42
+        network, where I built strong foundations in C and C++, systems
+        programming, and solving hard problems from scratch. Since completing
+        the program in November 2025, I have been working as a freelance
+        full-stack developer and building personal projects in data engineering.
+        I enjoy technically challenging work and taking full ownership of what I
+        build. Outside of work I stay active with football, gym, running, and
+        snowboarding. Currently open to full-time roles and freelance projects.
       </>
     ),
   },
@@ -144,6 +142,10 @@ const about: About = {
             using GitHub Actions, maintaining a stable live system from
             development to production.
           </>,
+          <>
+            Implemented cross-browser and responsive testing with Playwright to
+            ensure consistent behavior across different browsers and devices.
+          </>,
         ],
         images: [],
       },
@@ -159,13 +161,14 @@ const about: About = {
         timeframe: "Oct 2022 - Nov 2025",
         description: (
           <>
-            Hive is a project-based engineering school funded by Supercell and part of the global 42
-            network. The curriculum has no traditional lectures — everything is
-            built through hands-on projects, peer reviews, and self-directed
-            learning. Core focus on C and C++ programming, systems architecture,
-            data structures, algorithms, memory management, and problem solving.
-            Projects range from building a shell in C to a full IRC server in
-            C++ and a real-time multiplayer web platform in a team of five.
+            Hive is a project-based engineering school funded by Supercell and
+            part of the global 42 network. The curriculum has no traditional
+            lectures — everything is built through hands-on projects, peer
+            reviews, and self-directed learning. Core focus on C and C++
+            programming, systems architecture, data structures, algorithms,
+            memory management, and problem solving. Projects range from building
+            a shell in C to a full IRC server in C++ and a real-time multiplayer
+            web platform in a team of five.
           </>
         ),
       },
@@ -175,10 +178,11 @@ const about: About = {
         timeframe: "2017 - 2022",
         description: (
           <>
-            Strong foundations in advanced mathematics, calculus, linear algebra,
-            statistics, and data analysis. Coursework also included electronics,
-            circuit design, Arduino programming, PLC automation with Siemens TIA
-            Portal, and 3D mechanical design with Autodesk Inventor.
+            Strong foundations in advanced mathematics, calculus, linear
+            algebra, statistics, and data analysis. Coursework also included
+            electronics, circuit design, Arduino programming, PLC automation
+            with Siemens TIA Portal, and 3D mechanical design with Autodesk
+            Inventor.
           </>
         ),
       },
@@ -205,8 +209,8 @@ const about: About = {
         title: "Web & APIs",
         description: (
           <>
-            React, Next.js, Node.js, Django, REST APIs, WebSockets, GraphQL,
-            Nginx, Tailwind CSS
+            React, Next.js, Node.js, Django, FastAPI, REST APIs, WebSockets,
+            GraphQL, Nginx, Tailwind CSS
           </>
         ),
         tags: [
@@ -214,7 +218,9 @@ const about: About = {
           { name: "Next.js", icon: "nextjs" },
           { name: "Node.js", icon: "nodejs" },
           { name: "Django", icon: "django" },
+          { name: "FastAPI", icon: "fastapi" },
           { name: "GraphQL", icon: "graphql" },
+          { name: "Nginx", icon: "nginx" },
           { name: "Tailwind CSS", icon: "tailwindcss" },
         ],
         images: [],
@@ -271,8 +277,10 @@ const about: About = {
         description: (
           <>
             Actively uses Claude, GitHub Copilot, and Gemini as core parts of
-            the development workflow; for code generation, agentic code, debugging,
-            architecture decisions, and accelerating delivery.
+            the development workflow for code generation, debugging,
+            architecture decisions, and accelerating delivery. Currently
+            exploring agentic AI development and LLM integrations through
+            personal projects.
           </>
         ),
         tags: [
