@@ -1,4 +1,13 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import {
+  About,
+  Blog,
+  Gallery,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  Work,
+} from "@/types";
 
 const person: Person = {
   firstName: "Juan Esteban",
@@ -44,7 +53,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>I turn complex systems into reliable products</>,
+  headline: <>I build production software, end to end.</>,
   featured: {
     display: false,
     title: <>Featured project</>,
@@ -52,10 +61,14 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Juan Esteban, a Helsinki-based engineer working across full-stack,
-      backend, and data. I build production software end to end, from API design
-      and architecture to deployment and observability. I'm open to full-time and
-      freelance opportunities.
+      I'm Juan Esteban, a software engineer based in Helsinki. I work across
+      full-stack development and data engineering, from backend APIs and data
+      pipelines to frontend interfaces and deployment. My foundation comes from
+      intensive systems programming in C and C++ at Hive Helsinki, and I have
+      since built real products using TypeScript, React, Python, and modern data
+      tools. I enjoy working on technically challenging problems and taking full
+      ownership of what I build. Currently open to full-time roles and freelance
+      projects.
     </>
   ),
 };
@@ -81,16 +94,27 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        My background started in systems-heavy C/C++ projects at Hive Helsinki,
-        then evolved into production web and data engineering. Today I build
-        backend services, full-stack applications, and data pipelines. I care
-        about clear architecture, reliability under load, and software that solves
-        real business problems.
+        I'm Juan Esteban, a software engineer based in Helsinki, originally 
+        from Spain. My path into software started during my Mechanical 
+        Engineering studies, where different engineering projects brought me 
+        into contact with programming for the first time, through electronics, 
+        embedded systems, and data work. That curiosity led me to make a full 
+        transition into software. I moved to Finland and spent three years at 
+        Hive Helsinki, a project-based engineering school part of the global 
+        42 network, where I built strong foundations in C and C++, systems 
+        programming, and solving hard problems from scratch.
+
+        Since completing the program in November 2025, I have been working as a
+        freelance full-stack developer and building personal projects in data
+        engineering. I enjoy technically challenging work and taking full
+        ownership of what I build. Outside of work I stay active with football,
+        gym, running, and snowboarding. Currently open to full-time roles and
+        freelance projects.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
@@ -100,42 +124,25 @@ const about: About = {
         achievements: [
           <>
             Designed and developed a full-stack e-commerce web application from
-            scratch using Next.js, TypeScript, and Tailwind CSS.
+            scratch for a luxury fragrance brand launching in Helsinki, covering
+            a catalogue of 20+ products across perfumes, body mists, and
+            traditional oud blends.
           </>,
           <>
-            Built reusable components and integrated Shopify Storefront API via
-            GraphQL to power product data, cart logic, and dynamic rendering.
+            Built the full storefront with Next.js, TypeScript, and Tailwind
+            CSS, handling UI design and implementation end to end across
+            multiple sections including landing page, collections, shop, and
+            about pages.
+          </>,
+          <>
+            Integrated the Shopify Storefront API via GraphQL to manage product
+            data, cart logic, and dynamic rendering, connecting the custom
+            frontend to a headless Shopify backend.
           </>,
           <>
             Managed deployments, environment configuration, and CI/CD workflows
-            with GitHub Actions to keep a stable production environment.
-          </>,
-        ],
-        images: [
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Arabian Fragrance Company Project",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        company: "Transcendence Project",
-        timeframe: "2024 - 2025",
-        role: "Full Stack Developer (Team Project)",
-        achievements: [
-          <>
-            Owned backend development in a team of five, building REST APIs with
-            Django and PostgreSQL for authentication, matchmaking, and game logic.
-          </>,
-          <>
-            Implemented WebSockets for real-time multiplayer interaction and
-            deployed services with Docker and Nginx.
-          </>,
-          <>
-            Built automated API tests with Postman to validate core flows and
-            improve release confidence.
+            using GitHub Actions, maintaining a stable live system from
+            development to production.
           </>,
         ],
         images: [],
@@ -143,130 +150,132 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
         name: "Hive Helsinki",
+        title: "Software Engineering",
+        timeframe: "Oct 2022 - Nov 2025",
         description: (
           <>
-            Software Engineering (Oct 2022 - Nov 2025), project-based curriculum
-            focused on C/C++, systems programming, data structures, and software
-            architecture.
+            Hive is a project-based engineering school funded by Supercell and part of the global 42
+            network. The curriculum has no traditional lectures — everything is
+            built through hands-on projects, peer reviews, and self-directed
+            learning. Core focus on C and C++ programming, systems architecture,
+            data structures, algorithms, memory management, and problem solving.
+            Projects range from building a shell in C to a full IRC server in
+            C++ and a real-time multiplayer web platform in a team of five.
           </>
         ),
       },
       {
         name: "University of Antioquia",
+        title: "Mechanical Engineering",
+        timeframe: "2017 - 2022",
         description: (
           <>
-            B.Sc. Mechanical Engineering (2017 - 2022), with strong foundations in
-            mathematics, statistics, and data analysis.
+            Strong foundations in advanced mathematics, calculus, linear algebra,
+            statistics, and data analysis. Coursework also included electronics,
+            circuit design, Arduino programming, PLC automation with Siemens TIA
+            Portal, and 3D mechanical design with Autodesk Inventor.
           </>
         ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical Skills",
     skills: [
       {
-        title: "Full Stack Development",
+        title: "Languages",
+        description: <>Python, TypeScript, JavaScript, SQL, C, C++, Bash</>,
+        tags: [
+          { name: "Python", icon: "python" },
+          { name: "TypeScript", icon: "typescript" },
+          { name: "JavaScript", icon: "javascript" },
+          { name: "C/C++", icon: "c" },
+          { name: "SQL", icon: "sql" },
+          { name: "Bash", icon: "bash" },
+        ],
+        images: [],
+      },
+      {
+        title: "Web & APIs",
         description: (
           <>
-            Production-ready web development with Next.js, TypeScript, Node.js,
-            Django, GraphQL, REST APIs, and WebSockets.
+            React, Next.js, Node.js, Django, REST APIs, WebSockets, GraphQL,
+            Nginx, Tailwind CSS
           </>
         ),
         tags: [
-          {
-            name: "TypeScript",
-            icon: "typescript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Node.js",
-            icon: "nodejs",
-          },
+          { name: "React", icon: "react" },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Node.js", icon: "nodejs" },
+          { name: "Django", icon: "django" },
+          { name: "GraphQL", icon: "graphql" },
+          { name: "Tailwind CSS", icon: "tailwindcss" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
         title: "Data Engineering",
         description: (
           <>
-            Built end-to-end pipelines using Python, PySpark, Airflow, PostgreSQL,
-            dbt, and Azure Blob Storage for batch and analytical workloads,
-            including a SparkML model with AUC 0.92.
+            PostgreSQL, PySpark, Airflow, dbt, Azure Blob Storage, MySQL,
+            SQLite, MariaDB, Pandas, NumPy
           </>
         ),
         tags: [
-          {
-            name: "Python",
-            icon: "python",
-          },
-          {
-            name: "PySpark",
-            icon: "apacheSpark",
-          },
-          {
-            name: "PostgreSQL",
-            icon: "postgresql",
-          },
-          {
-            name: "Docker",
-            icon: "docker",
-          },
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "PySpark", icon: "apacheSpark" },
+          { name: "Airflow", icon: "apacheAirflow" },
+          { name: "dbt", icon: "dbt" },
+          { name: "Azure", icon: "azure" },
         ],
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Data engineering project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        title: "Systems, Infrastructure, and Quality",
+        title: "Infrastructure & Tooling",
         description: (
           <>
-            C/C++ systems programming background, containerized deployments,
-            CI/CD automation, testing, and debugging workflows focused on
-            shipping reliable software.
+            Docker, CI/CD, GitHub Actions, Linux, Git, Shell Scripting, Agile,
+            Scrum, Jira
           </>
         ),
         tags: [
-          {
-            name: "GitHub Actions",
-            icon: "github",
-          },
-          {
-            name: "Linux",
-            icon: "linux",
-          },
-          {
-            name: "Testing",
-            icon: "check",
-          },
+          { name: "Docker", icon: "docker" },
+          { name: "GitHub Actions", icon: "github" },
+          { name: "Linux", icon: "linux" },
+          { name: "Git", icon: "git" },
+        ],
+        images: [],
+      },
+      {
+        title: "Testing & QA",
+        description: (
+          <>
+            Automated testing, unit testing, CI/CD pipelines, debugging, log
+            analysis, Postman
+          </>
+        ),
+        tags: [{ name: "Postman", icon: "postman" }],
+        images: [],
+      },
+      {
+        title: "AI Tools",
+        description: (
+          <>
+            Actively uses Claude, GitHub Copilot, and Gemini as core parts of
+            the development workflow — for code generation, debugging,
+            architecture decisions, and accelerating delivery.
+          </>
+        ),
+        tags: [
+          { name: "Claude", icon: "anthropic" },
+          { name: "GitHub Copilot", icon: "github" },
+          { name: "Gemini", icon: "google" },
         ],
         images: [],
       },
