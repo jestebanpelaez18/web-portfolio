@@ -3,39 +3,63 @@ title: "IRC Server from Scratch in C++"
 publishedAt: "2024-11-10"
 summary: "Implemented a multi-client IRC server in C++ with non-blocking I/O, robust command parsing, and stable behavior under concurrent traffic."
 images:
-  - "/images/projects/project-01/cover-04.jpg"
-  - "/images/projects/project-01/video-01.mp4"
+  - "/images/projects/irc/cover-01.jpg"
 team:
   - name: "Juan Esteban Pelaez"
     role: "Systems Programmer"
     avatar: "/images/avatar.png"
     linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
+  - name: "Yoonseon Lee"
+    role: "Systems Programmer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://github.com/ynslee"
+  - name: "Josefina Husso"
+    role: "Systems Programmer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://github.com/hussojo"
 link: "https://github.com/jestebanpelaez18/ft_irc"
 ---
 
 ## Overview
 
-This project is a full IRC server implementation in modern C++, built from first principles on Linux. The focus was systems-level reliability, protocol correctness, and concurrent client management over TCP/IP.
+A full IRC server built from scratch in C++, following the IRC 
+protocol specification and tested against IRSSI as the reference 
+client. The project covers TCP/IP networking, concurrent client 
+management, and protocol-level command handling, all without forking 
+and using a single poll() call for all I/O operations.
 
 ## Key Features
 
-- Implemented core IRC command parsing and channel management for multi-user chat sessions.
-- Managed simultaneous client connections with non-blocking I/O.
-- Added signal handling and connection lifecycle control to improve server stability.
-- Debugged and optimized runtime behavior under high message throughput.
+- Managed multiple simultaneous client connections using non-blocking 
+  I/O with a single poll() call, handling read, write, and listen 
+  operations without blocking.
+- Implemented full IRC authentication flow including PASS, NICK, and 
+  USER commands with proper connection lifecycle management.
+- Built channel management supporting JOIN, PART, PRIVMSG, TOPIC, 
+  KICK, INVITE, and MODE commands with operator and regular user roles.
+- Implemented channel modes including invite-only, topic restrictions, 
+  channel keys, operator privileges, and user limits.
+- All communication done over TCP/IP with IRSSI as the reference 
+  client for protocol compliance testing.
 
 ## Technologies Used
 
-- C++
-- Linux
+- C++ (C++11)
 - TCP/IP sockets
-- Non-blocking I/O
-- Network protocol parsing
+- Non-blocking I/O with poll()
+- Linux
+- IRC protocol (RFC 1459, RFC 7194)
 
 ## Challenges and Learnings
 
-The most demanding aspect was concurrency and state consistency across active channels and users. Solving race-like behavior in asynchronous flows strengthened my understanding of low-level networking, state machines, and defensive debugging.
+The most demanding aspect was managing concurrent state across 
+multiple clients and channels without forking, using only a single 
+poll() instance. Implementing the full IRC protocol correctly required 
+careful reading of the RFC specs and systematic debugging of edge 
+cases in message parsing and connection handling.
 
 ## Outcome
 
-The final server supports multiple concurrent clients, handles core IRC interactions reliably, and demonstrates strong systems programming fundamentals in real-world networking scenarios.
+A fully functional IRC server that supports multiple concurrent 
+clients, passes protocol compliance testing with IRSSI, and 
+implements the complete set of channel operator commands.

@@ -3,10 +3,10 @@ title: "Production-Style Data Pipeline for HSL"
 publishedAt: "2026-01-15"
 summary: "Engineered a Bronze to Silver to Gold data pipeline with Airflow orchestration, PySpark processing, dbt models, and SparkML classification on transit data."
 images:
-  - "/images/projects/project-01/cover-01.jpg"
-  - "/images/projects/project-01/cover-02.jpg"
-  - "/images/projects/project-01/cover-03.jpg"
-  - "/images/projects/project-01/cover-04.jpg"
+  - "/images/projects/hsl/cover-01.jpg"
+  - "/images/projects/hsl/cover-02.jpg"
+  - "/images/projects/hsl/cover-03.jpg"
+  - "/images/projects/hsl/cover-04.jpg"
 team:
   - name: "Juan Esteban Pelaez"
     role: "Data Engineer"
@@ -17,22 +17,33 @@ link: "https://github.com/jestebanpelaez18/hsl-gtfs-realtime-pipeline"
 
 ## Overview
 
-This project delivers a production-style data platform using Helsinki public transport data (HSL GTFS). I implemented ingestion, transformation, analytics modeling, and machine learning as a complete pipeline that runs in containerized services.
+A production-style data platform built on Helsinki public transport 
+data from the HSL GTFS Realtime API. The project covers the full 
+data lifecycle, from raw ingestion to analytical modeling and machine 
+learning, running across containerized services with no manual 
+intervention.
 
 ## Key Features
 
-- Built a Bronze, Silver, Gold architecture with raw data landing in Azure Blob Storage.
-- Orchestrated end-to-end ETL with Airflow DAGs across Docker Compose services.
-- Implemented PySpark jobs to parse nested Protobuf feeds and load cleaned records into PostgreSQL with idempotent writes.
-- Modeled Gold analytical tables with dbt and added automated data quality checks across more than 100k records.
-- Trained a SparkML Random Forest classifier to predict skipped bus stops and achieved AUC 0.92.
+- Built a Bronze to Silver to Gold architecture with raw data landing 
+  in Azure Blob Storage following Azure Data Lake patterns.
+- Orchestrated end-to-end ETL with Airflow DAGs across Docker Compose 
+  services, with backfill support and retry strategies for reliable 
+  reprocessing.
+- Implemented PySpark jobs to parse nested Protobuf feeds and load 
+  cleaned records into PostgreSQL with idempotent writes.
+- Modeled Gold analytical tables with dbt and implemented automated 
+  data quality checks across more than 100k records, covering null 
+  checks, range validation, and consistency rules.
+- Trained a SparkML Random Forest classifier to predict skipped bus 
+  stops, achieving AUC 0.92 on historical trip data.
 
 ## Technologies Used
 
 - Python
 - PySpark
 - PostgreSQL
-- Airflow
+- Apache Airflow
 - dbt
 - Azure Blob Storage
 - Docker Compose
@@ -40,8 +51,14 @@ This project delivers a production-style data platform using Helsinki public tra
 
 ## Challenges and Learnings
 
-Main challenges included handling schema drift in nested transport feeds and guaranteeing pipeline idempotency between reruns. Building reliable orchestration and quality checks improved my approach to production data operations and monitoring-first engineering.
+Main challenges included handling schema drift in nested transport 
+feeds and guaranteeing pipeline idempotency between reruns. Building 
+reliable orchestration, backfill support, and quality checks improved 
+my approach to production data operations and observability-first 
+engineering.
 
 ## Outcome
 
-The result is a repeatable and observable data platform that supports both analytics and ML workflows, from raw ingestion to business-level insights and predictive modeling.
+A repeatable and observable data platform that supports both analytics 
+and ML workflows, from raw ingestion to business-level insights and 
+predictive modeling.

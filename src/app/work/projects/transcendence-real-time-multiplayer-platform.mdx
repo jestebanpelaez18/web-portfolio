@@ -1,42 +1,83 @@
 ---
 title: "Transcendence: Real-Time Multiplayer Platform"
 publishedAt: "2025-01-20"
-summary: "Built the backend for a real-time multiplayer game platform with robust APIs, WebSockets, containerized deployment, and automated API testing."
+summary: "Built the backend for a real-time multiplayer Pong platform with REST APIs, WebSockets, JWT authentication, containerized deployment, and automated testing."
 images:
-  - "/images/projects/project-01/cover-01.jpg"
-  - "/images/projects/project-01/image-03.jpg"
+  - "/images/projects/transcendence/cover-01.jpg"
+  - "/images/projects/transcendence/cover-02.jpg"
 team:
   - name: "Juan Esteban Pelaez"
-    role: "Full Stack Developer"
+    role: "Backend Developer"
     avatar: "/images/avatar.png"
     linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
+  - name: "Rasmus Rask"
+    role: "Project Manager & Frontend Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/rasmus-rask/"
+  - name: "Rosa Mäkinen"
+    role: "Frontend Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: ""
+  - name: "Teemu Spoof"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: ""
+  - name: "Yoonseon Lee"
+    role: "Frontend Developer"
+    avatar: "/images/avatar.png"
+    linkedIn: ""
 link: "https://github.com/jestebanpelaez18/ft_transcendence"
 ---
 
 ## Overview
 
-Transcendence is a real-time multiplayer Pong platform developed by a team of five using an Agile workflow. I led backend development end to end, designing and implementing the core services that power authentication, matchmaking, and gameplay state.
+Transcendence is a real-time multiplayer Pong platform built by a 
+team of five using an Agile workflow. I owned backend development end 
+to end, designing and implementing the core services that power 
+authentication, matchmaking, gameplay state, and tournament management.
 
 ## Key Features
 
-- Designed and implemented REST APIs with Django and PostgreSQL for user lifecycle, matchmaking, and persistent game data.
-- Implemented WebSocket communication for low-latency real-time game events and player synchronization.
-- Containerized backend services with Docker and served production traffic behind Nginx.
-- Built and executed automated API tests with Postman to validate authentication, matchmaking, and gameplay endpoints.
+- Designed and implemented REST APIs with Django and PostgreSQL for 
+  user lifecycle, matchmaking, persistent game data, and tournament 
+  management.
+- Implemented JWT-based authentication for secure token-based user 
+  sessions including registration, login, and profile management.
+- Built WebSocket communication using Django Channels for low-latency 
+  real-time game events and player synchronization.
+- Implemented server-side Pong logic handling ball movement, scoring, 
+  and player interactions, supporting both web interface and CLI 
+  interaction.
+- Implemented GDPR compliance features including user anonymization 
+  and local data management to meet regulatory requirements.
+- Containerized all backend services with Docker and served production 
+  traffic behind Nginx.
+- Built and executed automated API tests with Postman to validate 
+  authentication, matchmaking, and gameplay endpoints.
 
 ## Technologies Used
 
+- Python
 - Django
+- Django REST Framework
+- Django Channels
 - PostgreSQL
 - WebSockets
+- JWT
 - Docker
 - Nginx
 - Postman
 
 ## Challenges and Learnings
 
-The hardest part was keeping gameplay responsive while ensuring server authority and stable matchmaking. This required careful event design for WebSocket messages, predictable backend state transitions, and disciplined API validation to reduce integration regressions.
+The hardest part was keeping gameplay responsive while ensuring server 
+authority over game state and stable matchmaking. This required careful 
+WebSocket event design, predictable backend state transitions, and 
+disciplined API validation to reduce integration regressions across 
+a team of five working on different layers of the stack.
 
 ## Outcome
 
-The platform shipped as a complete multiplayer product with reliable backend flows, stable real-time interactions, and stronger release confidence through automated test coverage.
+The platform shipped as a complete multiplayer product with reliable 
+backend flows, stable real-time interactions, tournament support, and 
+stronger release confidence through automated test coverage.
