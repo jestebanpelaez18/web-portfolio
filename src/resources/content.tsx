@@ -53,7 +53,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>I build production software, end to end.</>,
+  headline: <>Built to engineer, driven to solve.</>,
   featured: {
     display: false,
     title: <>Featured project</>,
@@ -61,11 +61,13 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Juan Esteban, a software engineer based in Helsinki. I build
-      full-stack products, backend systems, and data pipelines with a strong
-      focus on reliability. My background in C/C++ systems programming shapes
-      how I design and ship production software. Open to full-time and
-      freelance opportunities.
+      I'm Juan Esteban, a Software engineer based in Helsinki with strong
+      engineering fundamentals and a genuine passion for building things that
+      work. I enjoy digging into hard problems, understanding how things work at
+      a deep level, and finding the right solution even when the path is not
+      obvious. I am always learning, always building, and I bring the same
+      curiosity and ownership to everything I work on, whether it is systems
+      programming, full-stack development, or data engineering.
     </>
   ),
 };
@@ -89,24 +91,8 @@ const about: About = {
   intro: {
     display: true,
     title: "Introduction",
-    description: (
-      <>
-        I'm Juan Esteban, a software engineer based in Helsinki, originally from
-        Spain. My path into software started during my Mechanical Engineering
-        studies, where different engineering projects brought me into contact
-        with programming for the first time, through electronics, embedded
-        systems, and data work. That curiosity led me to make a full transition
-        into software. I moved to Finland and spent three years at Hive
-        Helsinki, a project-based engineering school part of the global 42
-        network, where I built strong foundations in C and C++, systems
-        programming, and solving hard problems from scratch. Since completing
-        the program in November 2025, I have been working as a freelance
-        full-stack developer and building personal projects in data engineering.
-        I enjoy technically challenging work and taking full ownership of what I
-        build. Outside of work I stay active with football, gym, running, and
-        snowboarding. Currently open to full-time roles and freelance projects.
-      </>
-    ),
+    description:
+      "I'm Juan Esteban, a software engineer based in Helsinki, originally from Spain. My path into software started during my Mechanical Engineering studies, where working on engineering projects involving electronics, embedded systems, and data sparked my interest in programming.\n\nI made the full switch, moved to Finland, and spent three years at Hive Helsinki, a project-based engineering school part of the global 42 network, where I built strong foundations in C and C++, systems programming, and problem solving through real hands-on projects.\n\nSince then I have been working as a freelance full-stack developer and building personal projects in data engineering on the side. I take full ownership of what I build and I genuinely enjoy digging into hard problems.\n\nOutside of work I stay active with football, gym, running, and snowboarding. Currently open to full-time roles and freelance projects.",
   },
   work: {
     display: true,
@@ -155,17 +141,16 @@ const about: About = {
       {
         name: "Hive Helsinki",
         title: "Software Engineering",
-        timeframe: "Oct 2022 - Nov 2025",
+        timeframe: "Oct 2022 - 2026",
         description: (
           <>
-            Hive is a project-based engineering school funded by Supercell and
-            part of the global 42 network. The curriculum has no traditional
-            lectures — everything is built through hands-on projects, peer
-            reviews, and self-directed learning. Core focus on C and C++
-            programming, systems architecture, data structures, algorithms,
-            memory management, and problem solving. Projects range from building
-            a shell in C to a full IRC server in C++ and a real-time multiplayer
-            web platform in a team of five.
+            Built strong foundations in systems programming, algorithms, data
+            structures, memory management, and software architecture. Developed
+            practical skills across the full stack, from low-level C and C++ to
+            backend development, databases, networking, and containerization.
+            Learned how to approach complex problems methodically, work
+            collaboratively in team projects, and take full ownership of what I
+            build, all through real projects built from scratch.
           </>
         ),
       },
@@ -175,11 +160,13 @@ const about: About = {
         timeframe: "2017 - 2022",
         description: (
           <>
-            Strong foundations in advanced mathematics, calculus, linear
-            algebra, statistics, and data analysis. Coursework also included
-            electronics, circuit design, Arduino programming, PLC automation
-            with Siemens TIA Portal, and 3D mechanical design with Autodesk
-            Inventor.
+            A rigorous engineering education that built strong analytical
+            foundations across mathematics, physics, thermodynamics, materials
+            science, and engineering design. Learned to break down complex
+            systems, work with data, and approach problems with precision.
+            Practical coursework spanned electronics, circuit design, PLC
+            automation, embedded systems, and 3D mechanical design, combining
+            both hardware and software disciplines.
           </>
         ),
       },

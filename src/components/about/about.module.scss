@@ -8,6 +8,10 @@
     }
 }
 
+.introDescription {
+    white-space: pre-line;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
