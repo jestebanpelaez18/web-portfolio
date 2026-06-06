@@ -2,7 +2,9 @@
 
 Personal portfolio website built with Next.js and MDX.
 
-![Portfolio preview](public/images/og/home.jpg)
+![Portfolio preview](public/images/og/home.png)
+
+Live at: [jestebanpelaez.dev](https://jestebanpelaez.dev)
 
 ## Tech Stack
 
