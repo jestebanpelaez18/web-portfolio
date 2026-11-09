@@ -1,5 +1,5 @@
 // import a pre-defined template for config and content options
-export { person, social, home, about, work, gallery } from "./content";
+export { person, social, home, about, work } from "./content";
 
 export {
   display,
