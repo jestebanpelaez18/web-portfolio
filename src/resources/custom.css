@@ -1,69 +1,84 @@
-/* :root {
-  /*
-  /* Override default variables here */
-  /*
-  --font-size-display-multiplier:   1;
-  --font-size-heading-multiplier:   1;
-  --font-size-body-multiplier:      1;
-  --font-size-label-multiplier:     1;
+/*
+ * Redesign tokens (docs/redesign/BRIEF.md, "Design tokens").
+ * Defined once here. Components use these variables or the Once UI
+ * tokens mapped onto them below, never raw hex values.
+ */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-muted: #5e5e5e;
+  --color-subline: #6b6b6b;
+  --color-secondary: #3f3f3f;
+  --color-hairline: #e3e3e3;
+  --color-accent: #1f3fd1;
+  --color-media-dark: #161616;
 
-  --line-height-display-multiplier: 1;
-  --line-height-heading-multiplier: 1;
-  --line-height-body-multiplier:    1;
-  --line-height-label-multiplier:   1;
-
-  --default-border:        var(--neutral-border-medium);
+  --container-max: 1440px;
+  --container-pad: clamp(16px, 4vw, 40px);
+  --size-section-title: clamp(40px, 4.5vw, 64px);
+  --label-tracking: 0.08em;
 
   /*
-  /* Example setup for custom colors */
-  /* Generate at: https://once-ui.com/customize */
-  /*
-  --scheme-brand-100: #08002f;
-  --scheme-brand-200:  #04025c;
-  --scheme-brand-300:  #1f398e;
-  --scheme-brand-400:  #3856ae;
-  --scheme-brand-500:  #5071cc;
-  --scheme-brand-600:  #6f94f1;
-  --scheme-brand-700:  #8db3ff;
-  --scheme-brand-800:  #b2dbff;
-  --scheme-brand-900:  #bfe8ff;
-  --scheme-brand-1000: #ccf6ff;
-  --scheme-brand-1100: #d2fcff;
-  --scheme-brand-1200: #d2fcff;
-  --scheme-brand-600-10: rgba(111,148,241,0.1);
-  --scheme-brand-600-30: rgba(111,148,241,0.3);
-  --scheme-brand-600-50: rgba(111,148,241,0.5);
+   * Brand and accent use one blue ramp built around the accent colour
+   * (600 = #1F3FD1). style.brand and style.accent are "custom", so every
+   * token Once UI derives from them (solid fills, alpha tints, focus
+   * rings, selected states) is this blue or a tint of it.
+   */
+  --scheme-brand-100: #050b2e;
+  --scheme-brand-200: #0a1653;
+  --scheme-brand-300: #12247f;
+  --scheme-brand-400: #1830a8;
+  --scheme-brand-500: #1c38bf;
+  --scheme-brand-600: #1f3fd1;
+  --scheme-brand-700: #4c66dd;
+  --scheme-brand-800: #7f92e7;
+  --scheme-brand-900: #afbbf0;
+  --scheme-brand-1000: #d3daf7;
+  --scheme-brand-1100: #e6eafb;
+  --scheme-brand-1200: #f3f5fd;
+  --scheme-brand-600-10: rgba(31, 63, 209, 0.1);
+  --scheme-brand-600-15: rgba(31, 63, 209, 0.15);
+  --scheme-brand-600-30: rgba(31, 63, 209, 0.3);
+  --scheme-brand-600-50: rgba(31, 63, 209, 0.5);
 
-  --scheme-accent-100:  #030b10;
-  --scheme-accent-200:  #0d181d;
-  --scheme-accent-300:  #364248;
-  --scheme-accent-400:  #505d64;
-  --scheme-accent-500:  #69777e;
-  --scheme-accent-600:  #8a989f;
-  --scheme-accent-700:  #a8b7bf;
-  --scheme-accent-800:  #c8d7df;
-  --scheme-accent-900:  #d5e4ec;
-  --scheme-accent-1000: #e2f1f9;
-  --scheme-accent-1100: #e9f8ff;
-  --scheme-accent-1200: #efffff;
-  --scheme-accent-600-10: rgba(138,152,159,0.1);
-  --scheme-accent-600-30: rgba(138,152,159,0.3);
-  --scheme-accent-600-50: rgba(138,152,159,0.5);
+  --scheme-accent-100: var(--scheme-brand-100);
+  --scheme-accent-200: var(--scheme-brand-200);
+  --scheme-accent-300: var(--scheme-brand-300);
+  --scheme-accent-400: var(--scheme-brand-400);
+  --scheme-accent-500: var(--scheme-brand-500);
+  --scheme-accent-600: var(--scheme-brand-600);
+  --scheme-accent-700: var(--scheme-brand-700);
+  --scheme-accent-800: var(--scheme-brand-800);
+  --scheme-accent-900: var(--scheme-brand-900);
+  --scheme-accent-1000: var(--scheme-brand-1000);
+  --scheme-accent-1100: var(--scheme-brand-1100);
+  --scheme-accent-1200: var(--scheme-brand-1200);
+  --scheme-accent-600-10: var(--scheme-brand-600-10);
+  --scheme-accent-600-15: var(--scheme-brand-600-15);
+  --scheme-accent-600-30: var(--scheme-brand-600-30);
+  --scheme-accent-600-50: var(--scheme-brand-600-50);
+}
 
-  --scheme-neutral-100:  #020b10;
-  --scheme-neutral-200:  #0b181d;
-  --scheme-neutral-300:  #344248;
-  --scheme-neutral-400:  #4f5d64;
-  --scheme-neutral-500:  #68777e;
-  --scheme-neutral-600:  #89989f;
-  --scheme-neutral-700:  #a7b7be;
-  --scheme-neutral-800:  #c7d7df;
-  --scheme-neutral-900:  #d4e4ec;
-  --scheme-neutral-1000: #e1f2f9;
-  --scheme-neutral-1100: #e7f8ff;
-  --scheme-neutral-1200: #eeffff;
-  --scheme-neutral-600-10: rgba(137,152,159,0.1);
-  --scheme-neutral-600-30: rgba(137,152,159,0.3);
-  --scheme-neutral-600-50: rgba(137,152,159,0.5);
-  /*
-}*/
+/* Map Once UI's semantic tokens onto the redesign colours (light only). */
+[data-theme="light"] {
+  --page-background: var(--color-bg);
+  --neutral-on-background-strong: var(--color-text);
+  --neutral-on-background-medium: var(--color-secondary);
+  --neutral-on-background-weak: var(--color-muted);
+  --neutral-border-weak: var(--color-hairline);
+  --neutral-border-medium: var(--color-hairline);
+  /* Once UI colours every link with these (a:not(.button)). Links are the accent. */
+  --brand-on-background-medium: var(--color-accent);
+  --brand-on-background-strong: var(--color-accent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}

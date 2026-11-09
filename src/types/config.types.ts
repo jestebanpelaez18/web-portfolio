@@ -48,11 +48,13 @@ export type FontsConfig = {
 export type StyleConfig = {
   theme: Theme;
   neutral: NeutralColor;
-  brand: Schemes;
-  accent: Schemes;
+  // Once UI's CSS supports "custom" schemes and the "sharp" border style,
+  // but its TypeScript types leave them out.
+  brand: Schemes | "custom";
+  accent: Schemes | "custom";
   solid: SolidType;
   solidStyle: SolidStyle;
-  border: BorderStyle;
+  border: BorderStyle | "sharp";
   surface: SurfaceStyle;
   transition: TransitionStyle;
   scaling: ScalingSize;
