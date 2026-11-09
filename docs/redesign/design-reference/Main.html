@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Juan Esteban Pelaez, home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#1F3FD1}
+</style>
+</helmet>
+<div style="background: #FFFFFF; color: #111111; font-family: 'Geist', system-ui, sans-serif; min-height: 100vh">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); box-sizing: border-box">
+
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0">
+<a href="Main.dc.html" style="font-weight: 600; font-size: 20px; text-decoration: none; color: #111111">Juan Esteban Pelaez</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; font-size: 18px">
+<a href="#work" style="text-decoration: none">Work</a>
+<a href="About.dc.html" style="text-decoration: none">About</a>
+<a href="#contact" style="text-decoration: none; color: {{accent}}">Get in touch</a>
+</nav>
+</header>
+
+<section style="padding: clamp(64px, 10vw, 140px) 0 clamp(64px, 8vw, 120px)">
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(56px, 8vw, 112px); line-height: 1; letter-spacing: -0.01em">Software Engineer</h1>
+<p style="margin: 28px 0 0; max-width: 980px; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.12; color: #6B6B6B">Based in Helsinki. I build web applications and data pipelines, with a systems background in C and C++.</p>
+</section>
+
+<section id="work" style="border-top: 1px solid #E3E3E3; padding: 48px 0 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 40px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Selected work</h2>
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">3 CASE STUDIES · 3 PROJECTS</span>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px">
+
+<a href="ArabianFragrance.dc.html" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #111111">
+<div style="aspect-ratio: 4 / 5; background: #EDE6DA; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; text-align: center; font-size: 14px; color: #5E5E5E">Imagen: tienda AFC (storefront-desktop.png o foto de producto)</div>
+<span style="font-size: 26px">Arabian Fragrance</span>
+<span style="font-size: 22px; line-height: 1.3; color: #5E5E5E">A custom storefront for a Helsinki perfume brand, with Shopify running the catalog behind it</span>
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E; margin-top: 4px">CLIENT WORK</span>
+</a>
+
+<a href="HSL.dc.html" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #111111">
+<div style="aspect-ratio: 4 / 5; background: #DCE5EE; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; text-align: center; font-size: 14px; color: #5E5E5E">Imagen: diagrama de arquitectura o grafo de linaje de dbt</div>
+<span style="font-size: 26px">HSL Transit Data Pipeline</span>
+<span style="font-size: 22px; line-height: 1.3; color: #5E5E5E">Helsinki's realtime transit feed, from raw Protobuf to a trained model</span>
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E; margin-top: 4px">PERSONAL PROJECT</span>
+</a>
+
+<a href="Transcendence.dc.html" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: #111111">
+<div style="aspect-ratio: 4 / 5; background: #E6E3EE; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; text-align: center; font-size: 14px; color: #5E5E5E">Imagen: partida de Pong en marcha o diagrama de servicios</div>
+<span style="font-size: 26px">Transcendence</span>
+<span style="font-size: 22px; line-height: 1.3; color: #5E5E5E">The backend for a real-time multiplayer Pong platform, built in a team of five</span>
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E; margin-top: 4px">TEAM PROJECT</span>
+</a>
+
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 64px; border-top: 1px solid #E3E3E3; padding-top: 32px">
+
+<a href="https://github.com/jestebanpelaez18/ft_irc" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #111111">
+<div style="aspect-ratio: 16 / 9; background: #161616; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; text-align: center; font-size: 14px; color: #BDBDBD">Grabación de terminal: sesión en irssi</div>
+<span style="font-size: 22px">IRC Server</span>
+<span style="font-size: 18px; line-height: 1.35; color: #5E5E5E">A multi-client chat server in C++ on a single poll() loop</span>
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">C++ · NETWORKING</span>
+</a>
+
+<a href="Minishell.dc.html" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #111111">
+<div style="aspect-ratio: 16 / 9; background: #161616; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; text-align: center; font-size: 14px; color: #BDBDBD">Grabación de terminal: pipes y redirecciones</div>
+<span style="font-size: 22px">Minishell</span>
+<span style="font-size: 18px; line-height: 1.35; color: #5E5E5E">A Bash-like shell in C with parsing, pipes, redirections and signals</span>
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">C · UNIX</span>
+</a>
+
+<a href="https://github.com/jestebanpelaez18/42Course-Inception" style="display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: #111111">
+<div style="aspect-ratio: 16 / 9; background: #161616; display: flex; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box; text-align: center; font-size: 14px; color: #BDBDBD">Diagrama: NGINX, WordPress y MariaDB</div>
+<span style="font-size: 22px">Inception</span>
+<span style="font-size: 18px; line-height: 1.35; color: #5E5E5E">Docker infrastructure with every image written from scratch</span>
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">DOCKER · INFRASTRUCTURE</span>
+</a>
+
+</div>
+</section>
+
+<section id="about" style="border-top: 1px solid #E3E3E3; margin-top: 72px; padding: 56px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">About</h2>
+<div style="display: flex; flex-direction: column; gap: 20px; font-size: 22px; line-height: 1.5">
+<p style="margin: 0">I studied Mechanical Engineering, where projects with electronics and embedded systems got me into programming. I moved to Finland and completed the Software Engineering programme at Hive Helsinki, building everything from a Unix shell in C to a real-time multiplayer backend.</p>
+<p style="margin: 0">Since then I have designed and shipped an e-commerce platform for a client and built data engineering projects on my own.</p>
+<a href="About.dc.html" style="font-size: 18px; color: {{accent}}; text-decoration: none">More about me →</a>
+</div>
+</section>
+
+<section id="contact" style="border-top: 1px solid #E3E3E3; padding: 56px 0 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
+<div>
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">CONTACT</span>
+<h2 style="margin: 12px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.05">Let's talk</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 22px">
+<a href="mailto:juanes.pelaez18@gmail.com" style="color: {{accent}}">juanes.pelaez18@gmail.com</a>
+<a href="https://github.com/jestebanpelaez18">GitHub →</a>
+<a href="https://www.linkedin.com/in/jestebanpelaez18/">LinkedIn →</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #E3E3E3; padding: 24px 0 40px; font-size: 14px; color: #5E5E5E">© 2026 Juan Esteban Pelaez</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1F3FD1","options":["#1F3FD1","#111111","#B4471F","#2F6B4F"]},"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1F3FD1' };
+}
+}
+</script>
+</body>
+</html>

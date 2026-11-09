@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About Juan Esteban Pelaez</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#1F3FD1}
+</style>
+</helmet>
+<div style="background: #FFFFFF; color: #111111; font-family: 'Geist', system-ui, sans-serif; min-height: 100vh">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); box-sizing: border-box">
+
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0">
+<a href="Main.dc.html" style="font-weight: 600; font-size: 20px; text-decoration: none; color: #111111">Juan Esteban Pelaez</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; font-size: 18px">
+<a href="Main.dc.html" style="text-decoration: none">Work</a>
+<a href="About.dc.html" style="text-decoration: underline; text-underline-offset: 6px">About</a>
+<a href="#contact" style="text-decoration: none; color: {{accent}}">Get in touch</a>
+</nav>
+</header>
+
+<section style="padding: clamp(48px, 8vw, 110px) 0 64px">
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(56px, 8vw, 112px); line-height: 1">About</h1>
+<p style="margin: 24px 0 0; max-width: 1000px; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #6B6B6B">From mechanical engineering to C, and from C to the web and data.</p>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; border-top: 1px solid #E3E3E3; padding: 56px 0 72px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 420px">
+<div style="aspect-ratio: 4 / 5; background: #EFEFEC; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; text-align: center; font-size: 15px; color: #5E5E5E">Foto: retrato tuyo, mejor con luz natural y fondo neutro</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">BASED IN</span>
+<span style="font-size: 18px">Helsinki, Finland</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">AVAILABLE</span>
+<span style="font-size: 18px">Full-time roles</span>
+</div>
+</div>
+<a href="#" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; background: #111111; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 500; align-self: flex-start">Download CV (PDF)</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.5">
+<p style="margin: 0">I'm Juan Esteban, a software engineer based in Helsinki.</p>
+<p style="margin: 0">I first got into programming during Mechanical Engineering, through projects with electronics, embedded systems and PLC automation. I moved to Finland and completed the Software Engineering programme at Hive Helsinki, where I built a Unix shell, an IRC server, a raycasting engine and a multiplayer backend from scratch, in C, C++ and Python.</p>
+<p style="margin: 0">After Hive I worked as a freelance software engineer for Arabian Fragrance, a perfume company in Helsinki. I built their online store end to end and ended up setting up a large part of the business around it. On my own, I build data engineering projects, like a pipeline on HSL's realtime transit data.</p>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; border-top: 1px solid #E3E3E3; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Experience</h2>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 500">Arabian Fragrance Company</h3>
+<span style="font-size: 16px; color: #5E5E5E">Jul 2025 - Oct 2026</span>
+</div>
+<span style="font-size: 18px; color: {{accent}}; margin-top: -10px">Freelance Software Engineer</span>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 19px; line-height: 1.45">
+<li><span style="color: {{accent}}">→</span> Built the full storefront with Next.js, TypeScript, and Tailwind CSS, owning UI/UX design and implementation across all sections.</li>
+<li><span style="color: {{accent}}">→</span> Built a custom, type-safe GraphQL fetcher to integrate the Shopify Storefront API directly, avoiding a heavy third-party SDK.</li>
+<li><span style="color: {{accent}}">→</span> Built the internationalization system for English, Finnish, and Swedish from scratch, including locale-based routing and per-page metadata.</li>
+<li><span style="color: {{accent}}">→</span> Identified that the online store and physical shop ran as disconnected systems, and independently built a unified Shopify-based architecture to fix it.</li>
+<li><span style="color: {{accent}}">→</span> Implemented cross-browser and automated testing with Playwright to catch regressions before shipping.</li>
+<li><span style="color: {{accent}}">→</span> Took full ownership of the project with no roadmap handed down, leading scope that spanned e-commerce, physical retail, import operations, and staff training.</li>
+</ul>
+<a href="ArabianFragrance.dc.html" style="font-size: 18px; color: {{accent}}; text-decoration: none">Read the case study →</a>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; border-top: 1px solid #E3E3E3; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Education</h2>
+<div style="display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 500">Hive Helsinki</h3>
+<span style="font-size: 16px; color: #5E5E5E">Oct 2022 - Oct 2024</span>
+</div>
+<span style="font-size: 18px; color: {{accent}}">Software Engineering</span>
+<p style="margin: 0; font-size: 19px; line-height: 1.5; color: #3F3F3F">Completed a project-based Software Engineering programme. Focused on C and C++ programming, algorithms, data structures, systems architecture, and networking, all built through real projects and peer review.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 500">University of Antioquia</h3>
+<span style="font-size: 16px; color: #5E5E5E">2017 - 2022</span>
+</div>
+<span style="font-size: 18px; color: {{accent}}">Mechanical Engineering</span>
+<p style="margin: 0; font-size: 19px; line-height: 1.5; color: #3F3F3F">Studied Mechanical Engineering with coursework in mathematics, electronics, Arduino programming, and PLC automation.</p>
+</div>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; border-top: 1px solid #E3E3E3; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Skills</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px 40px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; color: #5E5E5E">PROGRAMMING</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.5">Python, SQL, TypeScript, JavaScript, Bash, C, C++</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; color: #5E5E5E">WEB AND APIS</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.5">React, Next.js, Node.js, Django, FastAPI, REST APIs, WebSockets, GraphQL, Tailwind CSS, Nginx</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; color: #5E5E5E">DATA</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.5">PostgreSQL, dbt, PySpark, Spark SQL, SparkML, Airflow, Azure Blob Storage</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; color: #5E5E5E">CLOUD AND INFRASTRUCTURE</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.5">Docker, Docker Compose, GitHub Actions, Linux, Git, Terraform, GCP</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; color: #5E5E5E">TESTING</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.5">Playwright, Postman, unit testing</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; font-size: 13px; letter-spacing: 0.08em; font-weight: 500; color: #5E5E5E">AI</h3>
+<p style="margin: 0; font-size: 19px; line-height: 1.5">Anthropic API, structured LLM output, Claude, Codex, GitHub Copilot</p>
+</div>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; border-top: 1px solid #E3E3E3; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Certifications</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E3E3; font-size: 19px"><span>Machine Learning with Apache Spark</span><span style="color: #5E5E5E">IBM · Feb 2026</span></li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E3E3; font-size: 19px"><span>Introduction to Big Data with Spark and Hadoop</span><span style="color: #5E5E5E">IBM · Jan 2026</span></li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E3E3; font-size: 19px"><span>ETL and Data Pipelines with Shell, Airflow, and Kafka</span><span style="color: #5E5E5E">IBM · Mar 2025</span></li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 16px 0; border-bottom: 1px solid #E3E3E3; font-size: 19px"><span>Databases and SQL for Data Science with Python</span><span style="color: #5E5E5E">IBM · Jan 2025</span></li>
+</ul>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; border-top: 1px solid #E3E3E3; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Languages</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px">Spanish</span><span style="font-size: 16px; color: #5E5E5E">Native</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px">English</span><span style="font-size: 16px; color: #5E5E5E">Professional</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px">Italian</span><span style="font-size: 16px; color: #5E5E5E">Intermediate</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 26px">Finnish</span><span style="font-size: 16px; color: #5E5E5E">Beginner</span></div>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; border-top: 1px solid #E3E3E3; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Outside work</h2>
+<p style="margin: 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.5">Football, the gym, running, and snowboarding when the Finnish winter allows it.</p>
+</section>
+
+<section id="contact" style="border-top: 1px solid #E3E3E3; padding: 56px 0 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
+<div>
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">CONTACT</span>
+<h2 style="margin: 12px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.05">Let's talk</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 22px">
+<a href="mailto:juanes.pelaez18@gmail.com" style="color: {{accent}}">juanes.pelaez18@gmail.com</a>
+<a href="https://github.com/jestebanpelaez18">GitHub →</a>
+<a href="https://www.linkedin.com/in/jestebanpelaez18/">LinkedIn →</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #E3E3E3; padding: 24px 0 40px; font-size: 14px; color: #5E5E5E">© 2026 Juan Esteban Pelaez</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1F3FD1","options":["#1F3FD1","#111111","#B4471F","#2F6B4F"]},"$preview":{"width":1440,"height":3800}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1F3FD1' };
+}
+}
+</script>
+</body>
+</html>

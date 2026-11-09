@@ -1,0 +1,33 @@
+---
+title: "IRC Server"
+format: "short"
+featured: false
+order: 4
+kind: "Team project"
+tags:
+  - "C++"
+  - "Networking"
+headline: "A multi-client chat server in C++ on a single poll() loop."
+cover: "/images/projects/irc/cover.gif"
+images:
+  - src: "/images/projects/irc/irssi-session.gif"
+    alt: "irssi session connected to the server, joining a channel and chatting"
+summary:
+  - "An IRC server built from scratch in C++, following the IRC protocol and tested against irssi as the reference client."
+  - "It runs without forking: a single poll() call handles every read, write and listen across all connected clients."
+highlights:
+  - title: "Many clients at once"
+    text: "Non-blocking I/O and signal handling keep connections stable across multiple simultaneous clients."
+  - title: "The full login flow"
+    text: "PASS, NICK and USER with proper connection lifecycle management."
+  - title: "Channels and operators"
+    text: "JOIN, PART, PRIVMSG, TOPIC, KICK, INVITE and MODE, with invite-only channels, topic restrictions, channel keys, operator privileges and user limits."
+stack:
+  - "C++"
+  - "TCP/IP sockets"
+  - "poll()"
+  - "Linux"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/ft_irc"
+---

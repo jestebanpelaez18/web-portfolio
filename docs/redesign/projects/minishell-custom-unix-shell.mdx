@@ -1,0 +1,33 @@
+---
+title: "Minishell"
+format: "short"
+featured: false
+order: 5
+kind: "Team project"
+tags:
+  - "C"
+  - "Unix"
+headline: "A Bash-like shell in C, built from scratch."
+cover: "/images/projects/minishell/cover.gif"
+images:
+  - src: "/images/projects/minishell/terminal.gif"
+    alt: "Terminal session chaining pipes, a redirection and Ctrl+C"
+summary:
+  - "Minishell is a small Unix shell modelled on Bash, written in C under strict constraints: a limited set of library functions and no external libraries."
+  - "I led the architectural design, built the pipe logic and hunted bugs across the codebase."
+highlights:
+  - title: "Parsing"
+    text: "A lexer that handles quotes and environment variable expansion."
+  - title: "Pipes and redirections"
+    text: "Chained commands and input, output and append redirections through file descriptors and Unix system calls."
+  - title: "Behaves like Bash"
+    text: "Ctrl+C, Ctrl+D and Ctrl+\\ handled like Bash, plus command history with the arrow keys. Tested against edge cases with no memory leaks, segfaults or freezes."
+stack:
+  - "C"
+  - "fork and exec"
+  - "file descriptors"
+  - "signals"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/42Course-Minishell"
+---

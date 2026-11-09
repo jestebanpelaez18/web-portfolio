@@ -1,0 +1,31 @@
+---
+title: "Cub3D"
+format: "short"
+featured: false
+order: 8
+kind: "Team project"
+tags:
+  - "C"
+  - "Graphics"
+headline: "A first-person raycasting engine in C."
+cover: "/images/projects/cub3d/cover.gif"
+images:
+  - src: "/images/projects/cub3d/gameplay.gif"
+    alt: "Walking through a textured maze in first person"
+summary:
+  - "A first-person 3D view rendered from a 2D map, written in C from scratch."
+highlights:
+  - title: "Raycasting with DDA"
+    text: "The DDA algorithm calculates wall intersections in real time for every column of the screen."
+  - title: "Its own map format"
+    text: "A custom parser for the map files, with full structural validation before anything renders."
+  - title: "Textures and movement"
+    text: "Textures through the MLX42 graphics library, built with CMake, and player movement and rotation with vector math."
+stack:
+  - "C"
+  - "MLX42"
+  - "CMake"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/Cub3d"
+---

@@ -1,0 +1,90 @@
+---
+title: "Arabian Fragrance"
+format: "case-study"
+featured: true
+order: 1
+kind: "Client work"
+period: "Jul 2025 - Oct 2026"
+headline: "A custom storefront for a Helsinki perfume brand, with Shopify running the catalog behind it."
+cover: "/images/projects/arabian-fragrance/cover.png"
+panel: "#EDE6DA"
+roleSummary: "Freelance Software Engineer"
+stack:
+  - "Next.js"
+  - "React"
+  - "TypeScript"
+  - "Tailwind CSS"
+  - "Shopify Storefront API"
+  - "GraphQL"
+  - "Zustand"
+  - "Playwright"
+links:
+  - label: "Live demo"
+    url: "https://headless-commerce-ten.vercel.app"
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/headless-commerce"
+hero:
+  image:
+    src: "/images/projects/arabian-fragrance/storefront-desktop.png"
+    alt: "Arabian Fragrance storefront home page on desktop"
+summary:
+  - "Arabian Fragrance is a small perfume company in Helsinki that sells online and in its own shop. They needed a store that felt like the brand, helped customers understand scent profiles and concentrations, and stayed easy for the team to update."
+  - "I built the storefront from scratch in Next.js, independent of Shopify themes, and connected it to Shopify for products, prices, availability and editorial content. The team edits the catalog in Shopify. The design and behaviour live in code."
+highlights:
+  - title: "Search built for fragrance"
+    text: "Ranked matches across names, notes and collections, with English, Finnish and Swedish aliases. Every meaningful word in the query has to match."
+  - title: "Three languages"
+    text: "English, Finnish and Swedish routes, interface text and product metadata, with filters that behave the same in every translation."
+  - title: "Content the team can edit"
+    text: "Homepage sections, Our Story and the showroom page come from Shopify metaobjects, sanitized before they render."
+  - title: "One inventory"
+    text: "The online store and the physical shop share stock and sales through Shopify, after moving away from a separate Stripe setup."
+gallery:
+  - src: "/images/projects/arabian-fragrance/catalog-filters.png"
+    alt: "Product catalog with scent, gender and collection filters"
+    device: "desktop"
+  - src: "/images/projects/arabian-fragrance/mobile-navigation.png"
+    alt: "Mobile navigation"
+    device: "mobile"
+  - src: "/images/projects/arabian-fragrance/mobile-product.png"
+    alt: "Mobile product page"
+    device: "mobile"
+  - src: "/images/projects/arabian-fragrance/mobile-bag.png"
+    alt: "Mobile shopping bag"
+    device: "mobile"
+results:
+  - value: "3"
+    label: "Languages: English, Finnish and Swedish"
+  - value: "4"
+    label: "Browser and device setups covered by the Playwright suite"
+  - value: "20+"
+    label: "Products across perfumes, oils, attars and body mists"
+  - value: "1"
+    label: "Inventory shared by the online store and the shop"
+sections:
+  - title: "Recommendations that make sense for perfume"
+    paragraphs:
+      - "Related products are ranked by shared scent accords, collection and gender, with stable tie-breaking so the same page always shows the same suggestions."
+      - "Layering suggestions work differently: the store team picks complementary products in Shopify, and the page shows their choice."
+    image:
+      src: "/images/projects/arabian-fragrance/product-detail.png"
+      alt: "Product page with fragrance notes and related products"
+    imageSide: "left"
+  - title: "Checked before every release"
+    paragraphs:
+      - "GitHub Actions runs lint, formatting and type checks, unit tests, a production build and a browser suite on every change. The browser tests cover catalog interactions, search, product pages, the shopping bag, translations and responsive navigation."
+    image:
+      src: "/images/projects/arabian-fragrance/ci-run.png"
+      alt: "GitHub Actions workflow run"
+    imageSide: "right"
+    dark: true
+contributionsTitle: "My role"
+contributions:
+  - "Storefront design and implementation, from brand direction to components"
+  - "Shopify data modelling with metafields and metaobjects"
+  - "Catalog filters, ranked search and product recommendations"
+  - "Localization in English, Finnish and Swedish"
+  - "Testing, CI/CD on GitHub Actions and deployment on Vercel"
+  - "Technical documentation for the handover"
+beyond: "Nobody handed me a roadmap. Besides the store, I set up the shop's point of sale with stock, payments and receipts, prepared the import documentation with the supplier in Dubai, and wrote the staff training manual and fragrance guide in English and Finnish."
+---

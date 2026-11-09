@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Transcendence case study</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#1F3FD1}
+</style>
+</helmet>
+<div style="background: #FFFFFF; color: #111111; font-family: 'Geist', system-ui, sans-serif; min-height: 100vh">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); box-sizing: border-box">
+
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0">
+<a href="Main.dc.html" style="font-weight: 600; font-size: 20px; text-decoration: none; color: #111111">Juan Esteban Pelaez</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; font-size: 18px">
+<a href="Main.dc.html" style="text-decoration: none">Work</a>
+<a href="About.dc.html" style="text-decoration: none">About</a>
+<a href="About.dc.html" style="text-decoration: none; color: {{accent}}">Get in touch</a>
+</nav>
+</header>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: clamp(48px, 8vw, 110px) 0 56px">
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">TEAM PROJECT</span>
+<div>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(56px, 7vw, 104px); line-height: 1">Transcendence</h1>
+<p style="margin: 20px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(30px, 3.4vw, 50px); line-height: 1.12; color: #6B6B6B">The backend for a real-time multiplayer Pong platform, built in a team of five.</p>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; border-top: 1px solid #E3E3E3; padding: 28px 0 40px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">ROLE</span>
+<span style="font-size: 18px">Backend, end to end</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">TEAM</span>
+<span style="font-size: 18px">5 people, Agile with sprints and code reviews</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">STACK</span>
+<span style="font-size: 18px; line-height: 1.45">Python, Django, Django REST Framework, Django Channels, PostgreSQL, Docker, Nginx, Postman</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #5E5E5E">LINKS</span>
+<a href="https://github.com/jestebanpelaez18/ft_transcendence" style="font-size: 18px; color: {{accent}}; text-decoration: none">Code on GitHub →</a>
+</div>
+</section>
+
+<div style="aspect-ratio: 16 / 8; background: {{panel}}; display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box; text-align: center; font-size: 16px; color: #5E5E5E">Imagen hero: una partida en marcha o la pantalla de torneo (mejor una grabación corta en bucle)</div>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 96px 0 72px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Summary</h2>
+<div style="display: flex; flex-direction: column; gap: 24px; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.45">
+<p style="margin: 0">Transcendence is a web platform where people play Pong against each other in real time, join tournaments and manage their profiles. Five of us built it with an Agile workflow, each owning a part of the stack.</p>
+<p style="margin: 0">I owned the backend: the database schema, the REST APIs, authentication, the real-time game server and the deployment setup.</p>
+</div>
+</section>
+
+<section style="background: {{panel}}; padding: clamp(28px, 5vw, 80px); display: flex; flex-direction: column; gap: 28px">
+<span style="font-size: 13px; letter-spacing: 0.08em; color: #3F3F3F">HOW THE BACKEND IS DEPLOYED</span>
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px">
+<div style="flex: 1 1 160px; background: #FFFFFF; border: 1px solid #CFCAD9; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.08em; color: #5E5E5E">CLIENT</span>
+<span style="font-size: 19px; font-weight: 500">Browser or CLI</span>
+</div>
+<span aria-hidden="true" style="align-self: center; font-size: 24px; color: #5E5E5E">→</span>
+<div style="flex: 1 1 160px; background: #FFFFFF; border: 1px solid #CFCAD9; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.08em; color: #5E5E5E">ENTRY POINT</span>
+<span style="font-size: 19px; font-weight: 500">Nginx</span>
+</div>
+<span aria-hidden="true" style="align-self: center; font-size: 24px; color: #5E5E5E">→</span>
+<div style="flex: 2 1 260px; display: flex; flex-direction: column; gap: 12px">
+<div style="background: #111111; color: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.08em; color: #C9C9C9">REST API</span>
+<span style="font-size: 19px; font-weight: 500">Django and DRF on Gunicorn</span>
+<span style="font-size: 15px; color: #E3E3E3">Users, auth, matchmaking, tournaments</span>
+</div>
+<div style="background: #111111; color: #FFFFFF; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.08em; color: #C9C9C9">REAL TIME</span>
+<span style="font-size: 19px; font-weight: 500">Django Channels on Daphne</span>
+<span style="font-size: 15px; color: #E3E3E3">Game events over WebSockets</span>
+</div>
+</div>
+<span aria-hidden="true" style="align-self: center; font-size: 24px; color: #5E5E5E">→</span>
+<div style="flex: 1 1 160px; background: #FFFFFF; border: 1px solid #CFCAD9; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px">
+<span style="font-size: 12px; letter-spacing: 0.08em; color: #5E5E5E">DATABASE</span>
+<span style="font-size: 19px; font-weight: 500">PostgreSQL</span>
+<span style="font-size: 15px; color: #3F3F3F">With health checks</span>
+</div>
+</div>
+<div style="border-top: 1px dashed #9A93AB; padding-top: 16px; font-size: 16px; color: #3F3F3F">Every service runs in its own container with Docker Compose</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 96px 0 72px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">Highlights</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 48px 40px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">The server runs the game</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #3F3F3F">Ball movement, scoring and player input are handled on the server, so both players always see the same game.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">One thread per match</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #3F3F3F">Each active game runs on its own thread with a dedicated asyncio event loop, isolating game state per match.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">Auth and privacy</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #3F3F3F">JWT sessions for registration, login and profiles, plus GDPR features such as user anonymization.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600">Tested APIs</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.5; color: #3F3F3F">Automated Postman tests for the authentication, matchmaking and gameplay endpoints.</p>
+</div>
+</div>
+</section>
+
+<section style="border-top: 1px solid #E3E3E3; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: 72px 0">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">In numbers</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px 40px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: clamp(64px, 6vw, 96px); line-height: 1">5</span>
+<span style="font-size: 17px; line-height: 1.45; color: #5E5E5E">People on the team</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: clamp(64px, 6vw, 96px); line-height: 1">1</span>
+<span style="font-size: 17px; line-height: 1.45; color: #5E5E5E">Thread and event loop per active match</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: clamp(64px, 6vw, 96px); line-height: 1">2</span>
+<span style="font-size: 17px; line-height: 1.45; color: #5E5E5E">Backend services: REST on Gunicorn, WebSockets on Daphne</span>
+</div>
+</div>
+</section>
+
+<section style="border-top: 1px solid #E3E3E3; padding: 72px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: start">
+<div style="aspect-ratio: 4 / 3; background: {{panel}}; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; text-align: center; font-size: 16px; color: #5E5E5E">Captura: partida entre dos jugadores o vista de torneo</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(36px, 3.6vw, 52px); line-height: 1.05">Responsive, but the server decides</h2>
+<p style="margin: 0; font-size: 20px; line-height: 1.5">The hard part was keeping gameplay responsive while the server stays the authority over the game state.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.5">That took a careful design of the WebSocket events, predictable state transitions on the backend, and strict API validation, so five people working on different layers did not break each other's work.</p>
+</div>
+</section>
+
+<section style="border-top: 1px solid #E3E3E3; padding: 72px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.5vw, 64px)">My role</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.35">
+<li><span style="color: {{accent}}">→</span> Database schema and REST APIs with Django and PostgreSQL</li>
+<li><span style="color: {{accent}}">→</span> JWT authentication and the user lifecycle</li>
+<li><span style="color: {{accent}}">→</span> Matchmaking, tournaments and persistent game data</li>
+<li><span style="color: {{accent}}">→</span> The real-time game server with Django Channels</li>
+<li><span style="color: {{accent}}">→</span> Docker Compose deployment behind Nginx</li>
+<li><span style="color: {{accent}}">→</span> The Postman API test suite</li>
+</ul>
+</section>
+
+<a href="Main.dc.html" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px; border-top: 1px solid #E3E3E3; padding: 48px 0 96px; text-decoration: none; color: #111111">
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">MORE WORK</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(40px, 4.5vw, 64px)">All projects →</span>
+</a>
+
+<footer style="border-top: 1px solid #E3E3E3; padding: 24px 0 40px; font-size: 14px; color: #5E5E5E">© 2026 Juan Esteban Pelaez</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1F3FD1","options":["#1F3FD1","#111111","#B4471F","#2F6B4F"]},"panel":{"editor":"color","default":"#E6E3EE","options":["#E6E3EE","#DCE5EE","#EDE6DA","#EFEFEC"]},"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1F3FD1', panel: this.props.panel ?? '#E6E3EE' };
+}
+}
+</script>
+</body>
+</html>

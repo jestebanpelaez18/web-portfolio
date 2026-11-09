@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Minishell project</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Instrument+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#1F3FD1}
+</style>
+</helmet>
+<div style="background: #FFFFFF; color: #111111; font-family: 'Geist', system-ui, sans-serif; min-height: 100vh">
+<div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); box-sizing: border-box">
+
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0">
+<a href="Main.dc.html" style="font-weight: 600; font-size: 20px; text-decoration: none; color: #111111">Juan Esteban Pelaez</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px; font-size: 18px">
+<a href="Main.dc.html" style="text-decoration: none">Work</a>
+<a href="About.dc.html" style="text-decoration: none">About</a>
+<a href="About.dc.html" style="text-decoration: none; color: {{accent}}">Get in touch</a>
+</nav>
+</header>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; padding: clamp(48px, 7vw, 96px) 0 48px">
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">TEAM PROJECT · C · UNIX</span>
+<div>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(52px, 6vw, 88px); line-height: 1">Minishell</h1>
+<p style="margin: 18px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(28px, 3vw, 44px); line-height: 1.12; color: #6B6B6B">A Bash-like shell in C, built from scratch.</p>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; border-top: 1px solid #E3E3E3; padding: 48px 0 72px; align-items: start">
+<div style="aspect-ratio: 4 / 3; background: #161616; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; text-align: center; font-size: 16px; color: #BDBDBD">Grabación de terminal en bucle: un pipe encadenado, una redirección y Ctrl+C</div>
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 18px; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.5">
+<p style="margin: 0">Minishell is a small Unix shell modelled on Bash, written in C under strict constraints: a limited set of library functions and no external libraries.</p>
+<p style="margin: 0">I led the architectural design, built the pipe logic and hunted bugs across the codebase.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #E3E3E3">
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-bottom: 1px solid #E3E3E3"><span style="font-size: 18px; font-weight: 600">Parsing</span><span style="font-size: 17px; line-height: 1.5; color: #3F3F3F">A lexer that handles quotes and environment variable expansion.</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-bottom: 1px solid #E3E3E3"><span style="font-size: 18px; font-weight: 600">Pipes and redirections</span><span style="font-size: 17px; line-height: 1.5; color: #3F3F3F">Chained commands and input, output and append redirections through file descriptors and Unix system calls.</span></li>
+<li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-bottom: 1px solid #E3E3E3"><span style="font-size: 18px; font-weight: 600">Behaves like Bash</span><span style="font-size: 17px; line-height: 1.5; color: #3F3F3F">Ctrl+C, Ctrl+D and Ctrl+\ handled like Bash, plus command history with the arrow keys. Tested against edge cases with no memory leaks, segfaults or freezes.</span></li>
+</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: baseline">
+<span style="font-size: 16px; color: #5E5E5E">C · fork and exec · file descriptors · signals</span>
+<a href="https://github.com/jestebanpelaez18/42Course-Minishell" style="font-size: 18px; color: {{accent}}; text-decoration: none">Code on GitHub →</a>
+</div>
+</div>
+</section>
+
+<nav aria-label="More projects" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; border-top: 1px solid #E3E3E3; padding: 40px 0 88px">
+<a href="Main.dc.html" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #111111">
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">PREVIOUS</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(32px, 3.4vw, 48px)">← IRC Server</span>
+</a>
+<a href="Main.dc.html" style="display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #111111; text-align: right; align-items: flex-end">
+<span style="font-size: 14px; letter-spacing: 0.08em; color: #5E5E5E">NEXT</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(32px, 3.4vw, 48px)">Inception →</span>
+</a>
+</nav>
+
+<footer style="border-top: 1px solid #E3E3E3; padding: 24px 0 40px; font-size: 14px; color: #5E5E5E">© 2026 Juan Esteban Pelaez</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1F3FD1","options":["#1F3FD1","#111111","#B4471F","#2F6B4F"]},"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#1F3FD1' };
+}
+}
+</script>
+</body>
+</html>

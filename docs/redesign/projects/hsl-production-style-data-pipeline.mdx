@@ -1,0 +1,98 @@
+---
+title: "HSL Transit Data Pipeline"
+format: "case-study"
+featured: true
+order: 2
+kind: "Personal project"
+headline: "Helsinki's realtime transit feed, from raw Protobuf to a trained model."
+cover: "/images/projects/hsl/cover.png"
+panel: "#DCE5EE"
+roleSummary: "Solo, from ingestion to model"
+stack:
+  - "Python"
+  - "PySpark"
+  - "PostgreSQL"
+  - "Airflow"
+  - "dbt"
+  - "Azure Blob Storage"
+  - "Docker Compose"
+  - "SparkML"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/hsl-gtfs-realtime-pipeline"
+hero:
+  diagram:
+    label: "How the data flows"
+    steps:
+      - label: "Source"
+        title: "HSL GTFS Realtime API"
+        text: "Nested Protobuf feeds"
+      - label: "Bronze"
+        title: "Raw data"
+        text: "Azure Blob Storage"
+      - label: "Silver"
+        title: "Parsed and cleaned"
+        text: "PySpark into PostgreSQL"
+      - label: "Gold"
+        title: "Analytics models"
+        text: "dbt, with tests and quality checks"
+      - label: "ML"
+        title: "Skipped-stop classifier"
+        text: "SparkML Random Forest"
+        dark: true
+    footnote: "Orchestrated with Airflow DAGs · every service runs in Docker Compose"
+summary:
+  - "HSL publishes realtime data for Helsinki's public transport as GTFS Realtime feeds, encoded in Protobuf. This project takes that feed through a medallion architecture."
+  - "Raw data lands in Azure Blob Storage. PySpark parses it and loads clean tables into PostgreSQL. dbt models the analytics layer with automated tests, and a SparkML model uses the history to predict skipped bus stops. Airflow runs the whole chain."
+highlights:
+  - title: "Orchestrated end to end"
+    text: "Airflow DAGs across containerized services, with backfill and retry support for reprocessing past data."
+  - title: "Reruns without duplicates"
+    text: "Writes into PostgreSQL are idempotent, so rerunning a task or a backfill leaves the same result."
+  - title: "Quality checks in the model layer"
+    text: "dbt schema tests and data quality checks across 100k+ records: nulls, value ranges and consistency rules."
+  - title: "Nested feeds, parsed properly"
+    text: "Python and PySpark jobs unpack nested Protobuf messages and cope with schema drift, with structured logging."
+gallery:
+  - src: "/images/projects/hsl/airflow-dag.png"
+    alt: "Airflow DAG grid view with successful runs"
+    device: "desktop"
+  - src: "/images/projects/hsl/dbt-lineage.png"
+    alt: "dbt lineage graph"
+    device: "desktop"
+  - src: "/images/projects/hsl/gold-query.png"
+    alt: "dbt test results or a query on the Gold layer"
+    device: "desktop"
+results:
+  - value: "3"
+    label: "Layers: Bronze, Silver and Gold"
+  - value: "100k+"
+    label: "Records under automated quality checks"
+  - value: "0.92"
+    label: "AUC predicting skipped stops"
+sections:
+  - title: "Will the bus skip this stop?"
+    paragraphs:
+      - "With the history modelled in the Gold layer, I trained a SparkML Random Forest (50 trees, max depth 5) to predict whether a bus will skip a stop."
+      - "Evaluated on historical trip data, it reaches an AUC of 0.92."
+    image:
+      src: "/images/projects/hsl/model.png"
+      alt: "ROC curve or feature importance of the model"
+    imageSide: "left"
+  - title: "When something breaks"
+    paragraphs:
+      - "Failures get traced from the Airflow task logs down to the container and the code. Because writes are idempotent, fixing the cause and rerunning the task is safe."
+    image:
+      src: "/images/projects/hsl/logs.png"
+      alt: "Airflow task log"
+    imageSide: "right"
+    dark: true
+contributionsTitle: "What I built"
+contributions:
+  - "Ingestion from HSL's public GTFS Realtime API"
+  - "A raw Bronze layer on Azure Blob Storage"
+  - "PySpark jobs parsing Protobuf and loading PostgreSQL"
+  - "dbt models, schema tests and data quality checks"
+  - "Airflow DAGs with backfill and retries, on Docker Compose"
+  - "A SparkML classifier and its evaluation"
+---
