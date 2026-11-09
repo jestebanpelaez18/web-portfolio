@@ -14,15 +14,6 @@ import {
 import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 /**
- * Display configuration for UI elements.
- */
-export type DisplayConfig = {
-  location: boolean;
-  time: boolean;
-  themeSwitcher: boolean;
-};
-
-/**
  * Route configuration for enabled/disabled routes.
  */
 export type RoutesConfig = Record<`/${string}`, boolean>;
@@ -78,50 +69,6 @@ export type DataStyleConfig = {
 };
 
 /**
- * Effects configuration for UI visuals.
- */
-export type EffectsConfig = {
-  mask: {
-    cursor: boolean;
-    x: number;
-    y: number;
-    radius: number;
-  };
-  gradient: {
-    display: boolean;
-    opacity: number;
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-    tilt: number;
-    colorStart: string;
-    colorEnd: string;
-  };
-  dots: {
-    display: boolean;
-    opacity: number;
-    size: string;
-    color: string;
-  };
-  grid: {
-    display: boolean;
-    opacity: number;
-    color: string;
-    width: string;
-    height: string;
-  };
-  lines: {
-    display: boolean;
-    opacity: number;
-    color: string;
-    size: string;
-    thickness: number;
-    angle: number;
-  };
-};
-
-/**
  * Schema data for SEO/meta tags.
  */
 export type SchemaConfig = {
@@ -143,7 +90,6 @@ export type SameAsConfig = {
  * Top-level config types for once-ui.config.js
  */
 export type OnceUIConfig = {
-  display: DisplayConfig;
   routes: RoutesConfig;
   protectedRoutes: ProtectedRoutesConfig;
   baseURL: string;
@@ -151,6 +97,5 @@ export type OnceUIConfig = {
   style: StyleConfig;
   schema: SchemaConfig;
   sameAs: SameAsConfig;
-  effects: EffectsConfig;
   dataStyle: DataStyleConfig;
 };

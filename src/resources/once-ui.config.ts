@@ -1,7 +1,5 @@
 import {
   DataStyleConfig,
-  DisplayConfig,
-  EffectsConfig,
   FontsConfig,
   ProtectedRoutesConfig,
   RoutesConfig,
@@ -19,12 +17,6 @@ const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
-};
-
-const display: DisplayConfig = {
-  location: true,
-  time: true,
-  themeSwitcher: true,
 };
 
 // Enable password protection on selected routes
@@ -96,47 +88,6 @@ const dataStyle: DataStyleConfig = {
   },
 };
 
-const effects: EffectsConfig = {
-  mask: {
-    cursor: false,
-    x: 50,
-    y: 0,
-    radius: 100,
-  },
-  gradient: {
-    display: false,
-    opacity: 100,
-    x: 50,
-    y: 60,
-    width: 100,
-    height: 50,
-    tilt: 0,
-    colorStart: "accent-background-strong",
-    colorEnd: "page-background",
-  },
-  dots: {
-    display: true,
-    opacity: 40,
-    size: "2",
-    color: "brand-background-strong",
-  },
-  grid: {
-    display: false,
-    opacity: 100,
-    color: "neutral-alpha-medium",
-    width: "0.25rem",
-    height: "0.25rem",
-  },
-  lines: {
-    display: false,
-    opacity: 100,
-    color: "neutral-alpha-weak",
-    size: "16",
-    thickness: 1,
-    angle: 45,
-  },
-};
-
 // default schema data
 const schema: SchemaConfig = {
   type: "Person",
@@ -151,15 +102,4 @@ const sameAs: SameAsConfig = {
   linkedin: "https://www.linkedin.com/in/jestebanpelaez18/",
 };
 
-export {
-  display,
-  routes,
-  protectedRoutes,
-  baseURL,
-  fonts,
-  style,
-  schema,
-  sameAs,
-  effects,
-  dataStyle,
-};
+export { routes, protectedRoutes, baseURL, fonts, style, schema, sameAs, dataStyle };

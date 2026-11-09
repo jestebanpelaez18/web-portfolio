@@ -3,7 +3,6 @@ import {
   Text,
   Button,
   Avatar,
-  RevealFx,
   Column,
   Badge,
   Row,
@@ -42,13 +41,7 @@ export default function Home() {
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
+            <Row fillWidth horizontal="center" paddingTop="16" paddingBottom="32" paddingLeft="12">
               <Badge
                 background="brand-alpha-weak"
                 paddingX="12"
@@ -60,22 +53,22 @@ export default function Home() {
               >
                 <Row paddingY="2">{home.featured.title}</Row>
               </Badge>
-            </RevealFx>
+            </Row>
           )}
 
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
+          <Row fillWidth horizontal="center" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
-          </RevealFx>
+          </Row>
 
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+          <Row fillWidth horizontal="center" paddingBottom="32">
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
-          </RevealFx>
+          </Row>
 
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+          <Row paddingTop="12" horizontal="center" paddingLeft="12">
             <Row gap="12" horizontal="center" wrap>
               <Button
                 id="about"
@@ -111,7 +104,7 @@ export default function Home() {
                 View projects
               </Button>
             </Row>
-          </RevealFx>
+          </Row>
         </Column>
       </Column>
 

@@ -2,7 +2,6 @@
 export { person, social, home, about, work } from "./content";
 
 export {
-  display,
   routes,
   protectedRoutes,
   baseURL,
@@ -10,6 +9,5 @@ export {
   style,
   schema,
   sameAs,
-  effects,
   dataStyle,
 } from "./once-ui.config";
