@@ -15,7 +15,7 @@ import { home } from "./index";
 
 // Set NEXT_PUBLIC_SITE_URL in Vercel (or .env) to your canonical domain.
 const normalizedSiteURL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
-const baseURL: string = normalizedSiteURL || "https://web-portfolio.vercel.app";
+const baseURL: string = normalizedSiteURL || "https://jestebanpelaez.dev";
 
 const routes: RoutesConfig = {
   "/": true,
