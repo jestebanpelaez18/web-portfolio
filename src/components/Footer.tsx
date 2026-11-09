@@ -1,4 +1,4 @@
-import { Row, IconButton, Text } from "@once-ui-system/core";
+import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import styles from "./Footer.module.scss";
 
@@ -24,7 +24,13 @@ export const Footer = () => {
         <Text variant="body-default-s" onBackground="neutral-strong">
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
           <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">/ Built with Next.js and TypeScript</Text>
+          <Text onBackground="neutral-weak">
+            / Based on{" "}
+            <SmartLink href="https://github.com/once-ui-system/magic-portfolio">
+              Magic Portfolio
+            </SmartLink>{" "}
+            by Once UI
+          </Text>
         </Text>
         <Row gap="16">
           {social.map(
