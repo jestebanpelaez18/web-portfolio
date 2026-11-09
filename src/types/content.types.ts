@@ -30,19 +30,6 @@ export type Person = {
 };
 
 /**
- * Newsletter Section
- * @description The below information will be displayed on the Home page in Newsletter block
- */
-export type Newsletter = {
-  /** Whether to display the newsletter section */
-  display: boolean;
-  /** Title of the newsletter   */
-  title: React.ReactNode;
-  /** Description of the newsletter */
-  description: React.ReactNode;
-};
-
-/**
  * Social link configuration.
  */
 export type Social = Array<{
@@ -216,12 +203,6 @@ export interface About extends BasePageConfig {
     }>;
   };
 }
-
-/**
- * Blog page configuration.
- * @description Configuration for the Blog page, including metadata and navigation label.
- */
-export interface Blog extends BasePageConfig {}
 
 /**
  * Work/projects page configuration.

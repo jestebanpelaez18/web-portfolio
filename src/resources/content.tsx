@@ -1,9 +1,7 @@
 import {
   About,
-  Blog,
   Gallery,
   Home,
-  Newsletter,
   Person,
   Social,
   Work,
@@ -18,12 +16,6 @@ const person: Person = {
   email: "juanes.pelaez18@gmail.com",
   location: "Europe/Helsinki", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Spanish"], // optional: Leave the array empty if you don't want to display languages
-};
-
-const newsletter: Newsletter = {
-  display: false,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>Engineering notes, experiments, and project updates</>,
 };
 
 const social: Social = [
@@ -278,13 +270,6 @@ const about: About = {
   },
 };
 
-const blog: Blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Engineering notes and project learnings",
-  description: `Read what ${person.name} has been up to recently`,
-};
-
 const work: Work = {
   path: "/work",
   label: "Work",
@@ -341,4 +326,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, home, about, work, gallery };
