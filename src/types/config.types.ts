@@ -131,7 +131,6 @@ export type MailchimpConfig = {
  * Schema data for SEO/meta tags.
  */
 export type SchemaConfig = {
-  logo: string;
   type: string;
   name: string;
   description: string;
@@ -142,9 +141,8 @@ export type SchemaConfig = {
  * Social links for organization.
  */
 export type SameAsConfig = {
-  threads: string;
+  github: string;
   linkedin: string;
-  discord: string;
 };
 
 /**

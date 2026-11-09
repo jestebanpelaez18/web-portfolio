@@ -187,7 +187,6 @@ const mailchimp: MailchimpConfig = {
 
 // default schema data
 const schema: SchemaConfig = {
-  logo: `${baseURL}/trademarks/wordmark-light.svg`,
   type: "Person",
   name: "Juan Esteban Pelaez",
   description: home.description,
@@ -196,9 +195,8 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://github.com/jestebanpelaez18",
+  github: "https://github.com/jestebanpelaez18",
   linkedin: "https://www.linkedin.com/in/jestebanpelaez18/",
-  discord: "https://github.com/jestebanpelaez18/web-portfolio",
 };
 
 // social sharing configuration for blog posts
