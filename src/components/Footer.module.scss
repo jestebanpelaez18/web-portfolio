@@ -1,7 +1,6 @@
-@use "./breakpoints.scss" as breakpoints;
-
-@media (max-width: breakpoints.$s) {
-    .mobile {
-        text-align: center;
-    }
+.footer {
+  border-top: 1px solid var(--color-hairline);
+  padding-block: 24px 40px;
+  font-size: 14px;
+  color: var(--color-muted);
 }
