@@ -1,0 +1,169 @@
+/* Doubled class beats the Section module's padding-block. */
+.afterPanel.afterPanel {
+  padding-top: 96px;
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: var(--size-lead);
+  line-height: 1.45;
+
+  p {
+    margin: 0;
+  }
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 48px 40px;
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-secondary);
+  }
+}
+
+/* Gallery: first desktop shot full width, the rest two per row, phones in a row. */
+.gallery {
+  display: grid;
+  /* At most two columns; one below ~632px. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(300px, calc(50% - 16px))), 1fr));
+  gap: 32px;
+  padding: clamp(32px, 6vw, 96px);
+  background: var(--panel, var(--color-panel-fallback));
+}
+
+.galleryWide {
+  grid-column: 1 / -1;
+}
+
+.galleryMobile {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 32px;
+  align-items: center;
+}
+
+.phone {
+  justify-self: center;
+  max-width: 300px;
+  max-height: 620px;
+}
+
+/* In numbers: value above label (label first in the DOM for <dl>). */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 48px 40px;
+  margin: 0;
+}
+
+.number {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.numberValue {
+  margin: 0;
+  font-size: var(--size-big-number);
+  line-height: 1;
+}
+
+.numberLabel {
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+/* Deep-dive rows: image and text, image side set by imageSide. */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  align-items: start;
+  gap: 48px;
+  padding-block: 72px;
+}
+
+.rowBordered {
+  border-top: 1px solid var(--color-hairline);
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+
+.rowTitle {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--size-row-title);
+  line-height: 1.05;
+}
+
+/* imageSide: "right" puts the image after the text, as in the mockups. */
+.imageRight .rowMedia {
+  order: 1;
+}
+
+.contributionsBody {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.arrowList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.35;
+}
+
+.arrow {
+  color: var(--color-accent);
+}
+
+.beyond {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  background: var(--color-shade);
+
+  p {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+}
