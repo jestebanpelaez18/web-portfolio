@@ -1,0 +1,96 @@
+.diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: clamp(28px, 5vw, 80px);
+  background: var(--panel, var(--color-panel-fallback));
+}
+
+.label {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--label-tracking);
+  color: var(--color-secondary);
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.arrow {
+  align-self: center;
+  font-size: 24px;
+  color: var(--color-muted);
+}
+
+.step {
+  flex: 1 1 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  background: var(--color-bg);
+  border: 1px solid color-mix(in srgb, var(--panel, var(--color-panel-fallback)), black 10%);
+}
+
+.stack {
+  flex: 2 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .step {
+    flex: 1 1 auto;
+  }
+}
+
+.stepLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--label-tracking);
+  color: var(--color-muted);
+}
+
+.stepTitle {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.stepText {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-secondary);
+}
+
+.dark {
+  background: var(--color-text);
+  border-color: var(--color-text);
+
+  .stepLabel {
+    color: var(--color-on-dark-muted);
+  }
+
+  .stepTitle {
+    color: var(--color-on-dark);
+  }
+
+  .stepText {
+    color: var(--color-on-dark-soft);
+  }
+}
+
+.footnote {
+  padding-top: 16px;
+  border-top: 1px dashed color-mix(in srgb, var(--panel, var(--color-panel-fallback)), black 35%);
+  font-size: 16px;
+  color: var(--color-secondary);
+}
