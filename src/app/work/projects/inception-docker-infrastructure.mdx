@@ -1,58 +1,33 @@
 ---
-title: "Inception: Docker Infrastructure from Scratch"
-publishedAt: "2024-08-01"
-summary: "Set up a multi-container infrastructure using Docker Compose with custom-built images for NGINX, WordPress, and MariaDB on Alpine Linux."
+title: "Inception"
+format: "short"
+featured: false
+order: 6
+kind: "Solo project"
+tags:
+  - "Docker"
+  - "Infrastructure"
+headline: "Docker infrastructure with every image written from scratch."
+cover: "/images/projects/inception/cover.png"
 images:
-  - "/images/projects/inception/cover-01.png"
-  - "/images/projects/inception/diagram-01.png"
-team:
-  - name: "Juan Esteban Pelaez"
-    role: "Systems Administrator"
-    linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
-link: "https://github.com/jestebanpelaez18/42Course-Inception"
+  - src: "/images/projects/inception/diagram.png"
+    alt: "NGINX, WordPress and MariaDB containers on a private Docker network"
+summary:
+  - "A small but complete multi-service infrastructure with Docker Compose. Every image is built from my own Dockerfiles on Alpine Linux, with no pre-built images allowed."
+highlights:
+  - title: "One way in"
+    text: "NGINX is the single entry point, with TLS 1.2 and 1.3 only. WordPress and MariaDB are not exposed to the outside."
+  - title: "Isolated services"
+    text: "WordPress runs with php-fpm in its own container and talks to MariaDB only over a custom Docker network."
+  - title: "Data that survives"
+    text: "Persistent volumes for the database and the website files, so restarts lose nothing."
+stack:
+  - "Docker"
+  - "Docker Compose"
+  - "Alpine Linux"
+  - "NGINX"
+  - "MariaDB"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/42Course-Inception"
 ---
-
-## Overview
-
-Inception is a system administration project focused on containerization 
-and infrastructure design. The goal was to set up a small but complete 
-multi-service infrastructure using Docker Compose, with every image 
-built from scratch: no pulling from DockerHub.
-
-## Key Features
-
-- Built custom Docker images from Alpine Linux for each service, 
-  writing all Dockerfiles from scratch without using pre-built images.
-- Set up NGINX with TLSv1.2/TLSv1.3 only as the single entry point 
-  for all incoming traffic.
-- Configured WordPress with php-fpm in an isolated container without 
-  NGINX, communicating only through the internal Docker network.
-- Set up MariaDB in a dedicated container as the database backend 
-  for WordPress.
-- Created persistent Docker volumes for the WordPress database and 
-  website files to survive container restarts.
-- Connected all services through a custom Docker network with no 
-  direct exposure between containers except through defined interfaces.
-
-## Technologies Used
-
-- Docker
-- Docker Compose
-- Alpine Linux
-- NGINX
-- WordPress with php-fpm
-- MariaDB
-- TLS configuration
-
-## Challenges and Learnings
-
-The main challenge was understanding how containers communicate 
-securely through internal networks without exposing services directly. 
-Writing all Dockerfiles from scratch on Alpine reinforced how 
-containerized environments are built and layered from the ground up.
-
-## Outcome
-
-A fully functional multi-service infrastructure running WordPress 
-over HTTPS, with isolated containers, persistent storage, and a 
-clean network architecture, all built without any pre-made images.

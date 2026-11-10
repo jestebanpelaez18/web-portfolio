@@ -1,68 +1,84 @@
 ---
-title: "Transcendence: Real-Time Multiplayer Platform"
-publishedAt: "2025-01-20"
-summary: "Built the backend for a real-time multiplayer Pong platform with REST APIs, WebSockets, JWT authentication, containerized deployment, and automated testing."
-images:
-  - "/images/projects/transcendence/cover-01.png"
-  - "/images/projects/transcendence/cover-02.png"
-  - "/images/projects/transcendence/cover-03.png"
-team:
-  - name: "Juan Esteban Pelaez"
-    role: "Backend Developer"
-    linkedIn: "https://www.linkedin.com/in/jestebanpelaez18/"
-  
-link: "https://github.com/jestebanpelaez18/ft_transcendence"
+title: "Transcendence"
+format: "case-study"
+featured: true
+order: 3
+kind: "Team project"
+headline: "The backend for a real-time multiplayer Pong platform, built in a team of five."
+cover: "/images/projects/transcendence/cover.png"
+panel: "#E6E3EE"
+roleSummary: "Backend, end to end"
+team: "5 people, Agile with sprints and code reviews"
+stack:
+  - "Python"
+  - "Django"
+  - "Django REST Framework"
+  - "Django Channels"
+  - "PostgreSQL"
+  - "Docker"
+  - "Nginx"
+  - "Postman"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/ft_transcendence"
+hero:
+  image:
+    src: "/images/projects/transcendence/gameplay.gif"
+    alt: "A Pong match in progress"
+summary:
+  - "Transcendence is a web platform where people play Pong against each other in real time, join tournaments and manage their profiles. Five of us built it with an Agile workflow, each owning a part of the stack."
+  - "I owned the backend: the database schema, the REST APIs, authentication, the real-time game server and the deployment setup."
+highlights:
+  - title: "The server runs the game"
+    text: "Ball movement, scoring and player input are handled on the server, so both players always see the same game."
+  - title: "One thread per match"
+    text: "Each active game runs on its own thread with a dedicated asyncio event loop, isolating game state per match."
+  - title: "Auth and privacy"
+    text: "JWT sessions for registration, login and profiles, plus GDPR features such as user anonymization."
+  - title: "Tested APIs"
+    text: "Automated Postman tests for the authentication, matchmaking and gameplay endpoints."
+results:
+  - value: "5"
+    label: "People on the team"
+  - value: "1"
+    label: "Thread and event loop per active match"
+  - value: "2"
+    label: "Backend services: REST on Gunicorn, WebSockets on Daphne"
+sections:
+  - title: "How the backend is deployed"
+    diagram:
+      steps:
+        - label: "Client"
+          title: "Browser or CLI"
+        - label: "Entry point"
+          title: "Nginx"
+        - stack:
+            - label: "REST API"
+              title: "Django and DRF on Gunicorn"
+              text: "Users, auth, matchmaking, tournaments"
+              dark: true
+            - label: "Real time"
+              title: "Django Channels on Daphne"
+              text: "Game events over WebSockets"
+              dark: true
+        - label: "Database"
+          title: "PostgreSQL"
+          text: "With health checks"
+      footnote: "Every service runs in its own container with Docker Compose"
+  - title: "Responsive, but the server decides"
+    paragraphs:
+      - "The hard part was keeping gameplay responsive while the server stays the authority over the game state."
+      - "That took a careful design of the WebSocket events, predictable state transitions on the backend, and strict API validation, so five people working on different layers did not break each other's work."
+    image:
+      src: "/images/projects/transcendence/tournament.png"
+      alt: "A match between two players or the tournament view"
+    imageSide: "left"
+contributionsTitle: "My role"
+contributions:
+  - "Database schema and REST APIs with Django and PostgreSQL"
+  - "JWT authentication and the user lifecycle"
+  - "Matchmaking, tournaments and persistent game data"
+  - "The real-time game server with Django Channels"
+  - "Docker Compose deployment behind Nginx"
+  - "The Postman API test suite"
 ---
-
-## Overview
-
-Transcendence is a real-time multiplayer Pong platform built by a 
-team of five using an Agile workflow. I owned backend development end 
-to end, designing and implementing the core services that power 
-authentication, matchmaking, gameplay state, and tournament management.
-
-## Key Features
-
-- Designed and implemented REST APIs with Django and PostgreSQL for 
-  user lifecycle, matchmaking, persistent game data, and tournament 
-  management.
-- Implemented JWT-based authentication for secure token-based user 
-  sessions including registration, login, and profile management.
-- Built WebSocket communication using Django Channels for low-latency 
-  real-time game events and player synchronization.
-- Implemented server-side Pong logic handling ball movement, scoring, 
-  and player interactions, supporting both web interface and CLI 
-  interaction.
-- Implemented GDPR compliance features including user anonymization 
-  and local data management to meet regulatory requirements.
-- Containerized all backend services with Docker and served production 
-  traffic behind Nginx.
-- Built and executed automated API tests with Postman to validate 
-  authentication, matchmaking, and gameplay endpoints.
-
-## Technologies Used
-
-- Python
-- Django
-- Django REST Framework
-- Django Channels
-- PostgreSQL
-- WebSockets
-- JWT
-- Docker
-- Nginx
-- Postman
-
-## Challenges and Learnings
-
-The hardest part was keeping gameplay responsive while ensuring server 
-authority over game state and stable matchmaking. This required careful 
-WebSocket event design, predictable backend state transitions, and 
-disciplined API validation to reduce integration regressions across 
-a team of five working on different layers of the stack.
-
-## Outcome
-
-The platform shipped as a complete multiplayer product with reliable 
-backend flows, stable real-time interactions, tournament support, and 
-stronger release confidence through automated test coverage.

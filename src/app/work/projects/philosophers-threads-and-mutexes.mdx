@@ -1,0 +1,31 @@
+---
+title: "Philosophers"
+format: "short"
+featured: false
+order: 7
+kind: "Solo project"
+tags:
+  - "C"
+  - "Concurrency"
+headline: "The Dining Philosophers problem in C, with threads and mutexes."
+cover: "/images/projects/philosophers/cover.gif"
+images:
+  - src: "/images/projects/philosophers/terminal.gif"
+    alt: "Terminal output of a simulation run"
+summary:
+  - "The classic Dining Philosophers problem, solved in C with POSIX threads. Each philosopher is a thread competing for shared forks, and the program has to avoid deadlocks and detect failure in time."
+highlights:
+  - title: "Safe shared state"
+    text: "A mutex per shared resource, plus separate read and write mutexes to track state across concurrently running threads."
+  - title: "No deadlock at the start"
+    text: "Staggered thread start order, so philosophers do not all reach for their forks at the same moment."
+  - title: "A watcher thread"
+    text: "A monitoring routine checks every thread's state in real time and reports failure conditions."
+stack:
+  - "C"
+  - "POSIX threads"
+  - "mutexes"
+links:
+  - label: "Code on GitHub"
+    url: "https://github.com/jestebanpelaez18/42Course-Philosophers"
+---
