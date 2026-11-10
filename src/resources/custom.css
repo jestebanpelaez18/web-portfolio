@@ -12,10 +12,28 @@
   --color-hairline: #e3e3e3;
   --color-accent: #1f3fd1;
   --color-media-dark: #161616;
+  /* Text on dark boxes (diagram steps, terminal placeholders). */
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #e3e3e3;
+  --color-on-dark-muted: #c9c9c9;
+  --color-on-dark-placeholder: #bdbdbd;
+  /* "Beyond the code" box on case studies. */
+  --color-shade: #f5f4f0;
+  /* Panel for projects without a `panel` field. */
+  --color-panel-fallback: #efefec;
 
   --container-max: 1440px;
   --container-pad: clamp(16px, 4vw, 40px);
   --size-section-title: clamp(40px, 4.5vw, 64px);
+  /* Project pages (docs/redesign/design-reference). */
+  --size-project-title: clamp(56px, 7vw, 104px);
+  --size-project-subline: clamp(30px, 3.4vw, 50px);
+  --size-short-title: clamp(52px, 6vw, 88px);
+  --size-short-subline: clamp(28px, 3vw, 44px);
+  --size-row-title: clamp(36px, 3.6vw, 52px);
+  --size-nav-title: clamp(32px, 3.4vw, 48px);
+  --size-big-number: clamp(64px, 6vw, 96px);
+  --size-lead: clamp(20px, 1.8vw, 26px);
   --label-tracking: 0.08em;
 
   /*
