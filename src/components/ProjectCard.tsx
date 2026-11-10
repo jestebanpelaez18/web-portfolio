@@ -1,90 +1,36 @@
-"use client";
+import Link from "next/link";
+import type { CSSProperties } from "react";
 
-import {
-  AvatarGroup,
-  Carousel,
-  Column,
-  Flex,
-  Heading,
-  SmartLink,
-  Text,
-} from "@once-ui-system/core";
+import { Eyebrow } from "@/components/Eyebrow";
+import { ProjectMedia } from "@/components/project/ProjectMedia";
+import type { Project } from "@/types";
 
-interface ProjectCardProps {
-  href: string;
+import styles from "./ProjectCard.module.scss";
+
+type ProjectCardProps = {
+  project: Project;
   priority?: boolean;
-  images: string[];
-  title: string;
-  content: string;
-  description: string;
-  avatars: { src: string }[];
-  link: string;
-}
+};
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
-  href,
-  images = [],
-  title,
-  content,
-  description,
-  avatars,
-  link,
-}) => {
+/** Cover, title, headline and kind. Phase 4 builds the final large and small cards. */
+export const ProjectCard = ({ project, priority }: ProjectCardProps) => {
+  const { slug, metadata } = project;
+  const panelStyle = metadata.panel ? ({ "--panel": metadata.panel } as CSSProperties) : undefined;
+
   return (
-    <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
-      <Flex
-        s={{ direction: "column" }}
-        fillWidth
-        paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
-      >
-        {title && (
-          <Flex flex={5}>
-            <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
-            </Heading>
-          </Flex>
-        )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
-            {description?.trim() && (
-              <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
-              </Text>
-            )}
-            <Flex gap="24" wrap>
-              {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowRight"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={href}
-                >
-                  <Text variant="body-default-s">Read case study</Text>
-                </SmartLink>
-              )}
-              {link && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={link}
-                >
-                  <Text variant="body-default-s">View project</Text>
-                </SmartLink>
-              )}
-            </Flex>
-          </Column>
-        )}
-      </Flex>
-    </Column>
+    <Link href={`/work/${slug}`} className={styles.card} style={panelStyle}>
+      {metadata.cover && (
+        <ProjectMedia
+          src={metadata.cover}
+          alt={metadata.title}
+          ratio="16 / 9"
+          sizes="(max-width: 700px) 100vw, 33vw"
+          priority={priority}
+        />
+      )}
+      <span className={styles.title}>{metadata.title}</span>
+      <span className={styles.headline}>{metadata.headline}</span>
+      <Eyebrow>{metadata.kind}</Eyebrow>
+    </Link>
   );
 };

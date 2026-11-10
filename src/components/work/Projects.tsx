@@ -1,43 +1,23 @@
-import { getPosts } from "@/utils/utils";
-import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
+import { getProjects } from "@/utils/projects";
 
-interface ProjectsProps {
-  range?: [number, number?];
-  exclude?: string[];
-}
-
-export function Projects({ range, exclude }: ProjectsProps) {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
-
-  // Exclude by slug (exact match)
-  if (exclude && exclude.length > 0) {
-    allProjects = allProjects.filter((post) => !exclude.includes(post.slug));
-  }
-
-  const sortedProjects = allProjects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-  });
-
-  const displayedProjects = range
-    ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
-    : sortedProjects;
-
+/**
+ * Project list for /work, ordered by `order`.
+ * Phase 4 of the redesign replaces this with the home page card grids.
+ */
+export function Projects() {
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      {displayedProjects.map((post, index) => (
-        <ProjectCard
-          priority={index < 2}
-          key={post.slug}
-          href={`/work/${post.slug}`}
-          images={post.metadata.images}
-          title={post.metadata.title}
-          description={post.metadata.summary}
-          content={post.content}
-          avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={post.metadata.link || ""}
-        />
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))",
+        gap: "48px 32px",
+        width: "100%",
+      }}
+    >
+      {getProjects().map((project, index) => (
+        <ProjectCard key={project.slug} project={project} priority={index < 3} />
       ))}
-    </Column>
+    </div>
   );
 }

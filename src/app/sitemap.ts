@@ -1,10 +1,9 @@
-import { getPosts } from "@/utils/utils";
 import { baseURL, routes as routesConfig } from "@/resources";
+import { getProjects } from "@/utils/projects";
 
 export default async function sitemap() {
-  const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
-    url: `${baseURL}/work/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+  const works = getProjects().map((project) => ({
+    url: `${baseURL}/work/${project.slug}`,
   }));
 
   const activeRoutes = Object.keys(routesConfig).filter(
