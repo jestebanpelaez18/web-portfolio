@@ -1,3 +1,5 @@
+@use "../breakpoints" as bp;
+
 .diagram {
   display: flex;
   flex-direction: column;
@@ -93,4 +95,24 @@
   border-top: 1px dashed color-mix(in srgb, var(--panel, var(--color-panel-fallback)), black 35%);
   font-size: 16px;
   color: var(--color-secondary);
+}
+
+/* Phones: one step per line, arrows point down. */
+@include bp.s {
+  .steps {
+    flex-direction: column;
+  }
+
+  /* In a column, flex-basis would become a height; size to content instead. */
+  .step,
+  .stack,
+  .stack .step {
+    flex: 0 0 auto;
+  }
+
+  .arrow {
+    display: inline-block;
+    line-height: 1;
+    transform: rotate(90deg);
+  }
 }
