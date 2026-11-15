@@ -63,7 +63,7 @@ const about: About = {
     subline: "From mechanical engineering to C, and from C to the web and data.",
   },
   intro: {
-    photo: { src: "/images/avatar-v3.jpg", alt: `Portrait of ${person.name}` },
+    photo: { src: person.avatar, alt: `Portrait of ${person.name}` },
     facts: [
       { label: "Based in", value: "Helsinki, Finland" },
       { label: "Available", value: "Full-time roles" },
