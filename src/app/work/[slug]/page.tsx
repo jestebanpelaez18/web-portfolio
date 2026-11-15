@@ -11,7 +11,7 @@ import {
   getNextCaseStudy,
   getProject,
   getProjects,
-  publicFileExists,
+  imageSize,
 } from "@/utils/projects";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -23,11 +23,17 @@ export function generateStaticParams(): { slug: string }[] {
   return getProjects().map((project) => ({ slug: project.slug }));
 }
 
-/** Cover image if the file is in public/, otherwise the generated OG card. */
-const ogImage = ({ metadata }: Project) =>
-  metadata.cover && publicFileExists(metadata.cover)
-    ? metadata.cover
+/**
+ * Share image: the hero image when it exists and is landscape (it fits the
+ * wide preview cards), otherwise the generated OG card.
+ */
+const ogImage = ({ metadata }: Project) => {
+  const hero = metadata.hero?.image?.src;
+  const size = hero ? imageSize(hero) : undefined;
+  return hero && size && size.width > size.height
+    ? hero
     : `/api/og/generate?title=${encodeURIComponent(metadata.title)}`;
+};
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;

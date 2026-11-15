@@ -290,6 +290,35 @@ export function publicFileExists(src: string): boolean {
 }
 
 /**
+ * Pixel size of a PNG, JPEG or GIF in public/, read from the file header.
+ * Undefined if the file is missing or in another format.
+ */
+export function imageSize(src: string): { width: number; height: number } | undefined {
+  const file = path.join(process.cwd(), "public", src);
+  if (!fs.existsSync(file)) return undefined;
+  const data = fs.readFileSync(file);
+  if (data.toString("ascii", 1, 4) === "PNG") {
+    return { width: data.readUInt32BE(16), height: data.readUInt32BE(20) };
+  }
+  if (data.toString("ascii", 0, 3) === "GIF") {
+    return { width: data.readUInt16LE(6), height: data.readUInt16LE(8) };
+  }
+  if (data[0] === 0xff && data[1] === 0xd8) {
+    // Walk JPEG segments to the first start-of-frame marker.
+    let offset = 2;
+    while (offset + 9 < data.length && data[offset] === 0xff) {
+      const marker = data[offset + 1];
+      const isFrame = marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker);
+      if (isFrame) {
+        return { height: data.readUInt16BE(offset + 5), width: data.readUInt16BE(offset + 7) };
+      }
+      offset += 2 + data.readUInt16BE(offset + 2);
+    }
+  }
+  return undefined;
+}
+
+/**
  * Whether to render a media slot for `src`. In development a missing file
  * still gets a placeholder box so layouts can be checked; in production it
  * renders nothing and the layout closes the gap.
