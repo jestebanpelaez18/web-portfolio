@@ -23,6 +23,14 @@
   font-weight: 600;
 }
 
+.header .active,
+.header .active:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  // Once UI sets a grey decoration colour with !important on every link.
+  text-decoration-color: currentColor !important;
+}
+
 .header .accent {
   color: var(--color-accent);
 }

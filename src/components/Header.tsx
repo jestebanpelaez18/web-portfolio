@@ -1,10 +1,11 @@
-import Link from "next/link";
 import classNames from "classnames";
+import Link from "next/link";
 
 import { Row } from "@once-ui-system/core";
 
 import { person, routes } from "@/resources";
 import styles from "./Header.module.scss";
+import { NavLink } from "./NavLink";
 
 export const Header = () => {
   return (
@@ -22,14 +23,14 @@ export const Header = () => {
       </Link>
       <Row as="nav" aria-label="Main" wrap vertical="center" className={styles.nav}>
         {routes["/work"] && (
-          <Link href="/work" className={styles.link}>
+          <NavLink href="/work" className={styles.link} activeClassName={styles.active}>
             Work
-          </Link>
+          </NavLink>
         )}
         {routes["/about"] && (
-          <Link href="/about" className={styles.link}>
+          <NavLink href="/about" className={styles.link} activeClassName={styles.active}>
             About
-          </Link>
+          </NavLink>
         )}
         <Link href="/#contact" className={classNames(styles.link, styles.accent)}>
           Get in touch
