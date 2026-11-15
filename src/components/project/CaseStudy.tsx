@@ -4,6 +4,7 @@ import { Fragment, type ReactNode } from "react";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Section } from "@/components/Section";
 import type { Project } from "@/types";
+import { showMedia } from "@/utils/projects";
 
 import styles from "./CaseStudy.module.scss";
 import { Diagram } from "./Diagram";
@@ -30,13 +31,16 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
   // block right after one drops its hairline and gets more top space.
   const blocks: { key: string; panel?: boolean; render: (afterPanel: boolean) => ReactNode }[] = [];
 
+  // In production, media whose file is missing is left out (see showMedia).
   if (m.hero?.image) {
     const { src, alt } = m.hero.image;
-    blocks.push({
-      key: "hero",
-      panel: true,
-      render: () => <ProjectMedia src={src} alt={alt} ratio="16 / 8" priority />,
-    });
+    if (showMedia(src)) {
+      blocks.push({
+        key: "hero",
+        panel: true,
+        render: () => <ProjectMedia src={src} alt={alt} ratio="16 / 8" priority />,
+      });
+    }
   } else if (m.hero?.diagram) {
     const diagram = m.hero.diagram;
     blocks.push({ key: "hero", panel: true, render: () => <Diagram diagram={diagram} /> });
@@ -85,9 +89,10 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
     });
   }
 
-  if (m.gallery) {
-    const desktop = m.gallery.filter((image) => image.device === "desktop");
-    const mobile = m.gallery.filter((image) => image.device === "mobile");
+  const gallery = m.gallery?.filter((image) => showMedia(image.src)) ?? [];
+  if (gallery.length > 0) {
+    const desktop = gallery.filter((image) => image.device === "desktop");
+    const mobile = gallery.filter((image) => image.device === "mobile");
     blocks.push({
       key: "gallery",
       panel: true,
@@ -98,7 +103,9 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
               key={src}
               src={src}
               alt={alt}
-              tone="white"
+              // Screenshots vary in shape; show them whole on the panel colour.
+              tone="panel"
+              fit="contain"
               ratio={i === 0 ? "16 / 9" : "4 / 3"}
               sizes={
                 i === 0 ? "(max-width: 1440px) 100vw, 1440px" : "(max-width: 700px) 100vw, 50vw"
@@ -160,7 +167,7 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
       });
       return;
     }
-    const image = section.image;
+    const image = section.image && showMedia(section.image.src) ? section.image : undefined;
     blocks.push({
       key,
       render: (afterPanel) => (
@@ -170,6 +177,7 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
             !afterPanel && styles.rowBordered,
             afterPanel && styles.afterPanel,
             section.imageSide === "right" && styles.imageRight,
+            !image && styles.rowTextOnly,
           )}
         >
           {image && (

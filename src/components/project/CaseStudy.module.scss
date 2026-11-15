@@ -128,6 +128,11 @@
   line-height: 1.05;
 }
 
+/* A section without an image (or whose image is missing in production): text full width. */
+.rowTextOnly {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 /* imageSide: "right" puts the image after the text, as in the mockups. */
 .imageRight .rowMedia {
   order: 1;

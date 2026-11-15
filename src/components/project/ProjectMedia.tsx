@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import Image from "next/image";
 
-import { publicFileExists } from "@/utils/projects";
+import type { MediaFit } from "@/types";
+import { publicFileExists, showMedia } from "@/utils/projects";
 
 import styles from "./ProjectMedia.module.scss";
 
@@ -14,6 +15,8 @@ type ProjectMediaProps = {
   tone?: "panel" | "dark" | "white";
   /** next/image sizes hint. */
   sizes?: string;
+  /** "contain" shows the whole image (diagrams); default crops to fill. */
+  fit?: MediaFit;
   priority?: boolean;
   className?: string;
 };
@@ -21,7 +24,8 @@ type ProjectMediaProps = {
 /**
  * Project image, GIF or looping video. Until the file exists in public/,
  * renders a box in the tone colour with the alt text, so layouts can be
- * checked without the real media.
+ * checked without the real media. In production a missing file renders
+ * nothing; parents check `showMedia` first so their layout closes the gap.
  */
 export const ProjectMedia = ({
   src,
@@ -29,11 +33,14 @@ export const ProjectMedia = ({
   ratio,
   tone = "panel",
   sizes = "100vw",
+  fit = "cover",
   priority = false,
   className,
 }: ProjectMediaProps) => {
+  if (!showMedia(src)) return null;
   const exists = publicFileExists(src);
   const isVideo = /\.(mp4|webm)$/i.test(src);
+  const fillClass = classNames(styles.fill, fit === "contain" && styles.contain);
 
   return (
     <div
@@ -43,10 +50,10 @@ export const ProjectMedia = ({
       {!exists ? (
         <span className={styles.placeholder}>{alt}</span>
       ) : isVideo ? (
-        <video className={styles.fill} src={src} aria-label={alt} autoPlay muted loop playsInline />
+        <video className={fillClass} src={src} aria-label={alt} autoPlay muted loop playsInline />
       ) : (
         <Image
-          className={styles.fill}
+          className={fillClass}
           src={src}
           alt={alt}
           fill

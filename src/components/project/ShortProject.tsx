@@ -1,4 +1,5 @@
 import type { Project } from "@/types";
+import { showMedia } from "@/utils/projects";
 
 import shared from "./Project.module.scss";
 import { ProjectHeader } from "./ProjectHeader";
@@ -15,7 +16,9 @@ type ShortProjectProps = {
 /** Short project template (docs/redesign/BRIEF.md, "Short project"). */
 export const ShortProject = ({ project, previous, next }: ShortProjectProps) => {
   const m = project.metadata;
-  const image = m.images?.[0];
+  // Without a shown image the row is the body alone, in one column.
+  const first = m.images?.[0];
+  const image = first && showMedia(first.src) ? first : undefined;
   const label = [m.kind, ...(m.tags ?? [])].join(" · ");
 
   return (
@@ -28,9 +31,11 @@ export const ShortProject = ({ project, previous, next }: ShortProjectProps) => 
             src={image.src}
             alt={image.alt}
             ratio="4 / 3"
-            // Terminal recordings sit on dark unless the project has its own panel.
-            tone={m.panel ? "panel" : "dark"}
+            // Terminal recordings sit on dark unless the project has its own panel;
+            // a contained diagram without a panel sits on white, not in black bars.
+            tone={m.panel ? "panel" : image.fit === "contain" ? "white" : "dark"}
             sizes="(max-width: 700px) 100vw, 50vw"
+            fit={image.fit}
             priority
           />
         )}

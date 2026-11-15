@@ -5,6 +5,7 @@ import type { CSSProperties } from "react";
 import { Eyebrow } from "@/components/Eyebrow";
 import { ProjectMedia } from "@/components/project/ProjectMedia";
 import type { Project } from "@/types";
+import { showMedia } from "@/utils/projects";
 
 import styles from "./ProjectCard.module.scss";
 
@@ -28,13 +29,14 @@ export const ProjectCard = ({ project, size = "small", priority }: ProjectCardPr
       className={classNames(styles.card, large ? styles.large : styles.small)}
       style={panelStyle}
     >
-      {metadata.cover && (
+      {showMedia(metadata.cover) && (
         <ProjectMedia
           src={metadata.cover}
           alt={metadata.title}
           ratio={large ? "4 / 5" : "16 / 9"}
           tone={large ? "panel" : "dark"}
           sizes="(max-width: 700px) 100vw, 33vw"
+          fit={metadata.coverFit}
           priority={priority}
         />
       )}

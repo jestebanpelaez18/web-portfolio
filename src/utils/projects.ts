@@ -14,6 +14,7 @@ import type {
   ProjectLink,
   ProjectSection,
   Result,
+  ShortProjectImage,
 } from "@/types";
 
 const PROJECTS_DIR = path.join(process.cwd(), "src", "app", "work", "projects");
@@ -109,6 +110,12 @@ function shape<T>(
 
 const image = shape<ProjectImage>({ src: req(str), alt: req(str) });
 
+const shortImage = shape<ShortProjectImage>({
+  src: req(str),
+  alt: req(str),
+  fit: opt(oneOf("cover", "contain")),
+});
+
 const step: Check = shape<DiagramStep>(
   {
     label: opt(str),
@@ -137,6 +144,16 @@ const exactlyOne =
     if (count !== 1) errors.push(`${at} needs exactly one of ${a} or ${b}`);
   };
 
+/** A section has an image, a diagram, or neither (text only), never both. */
+const sectionContent = (value: Record<string, unknown>, at: string, errors: string[]) => {
+  if (value.image !== undefined && value.diagram !== undefined) {
+    errors.push(`${at} can have an image or a diagram, not both`);
+  }
+  if (value.image === undefined && value.diagram === undefined && value.paragraphs === undefined) {
+    errors.push(`${at} needs an image, a diagram or paragraphs`);
+  }
+};
+
 const frontmatter = shape<ProjectFrontmatter>({
   title: req(str),
   format: req(oneOf("case-study", "short")),
@@ -147,6 +164,7 @@ const frontmatter = shape<ProjectFrontmatter>({
   tags: opt(arr(str)),
   period: opt(str),
   cover: opt(str),
+  coverFit: opt(oneOf("cover", "contain")),
   panel: opt(hex),
   roleSummary: opt(str),
   team: opt(str),
@@ -181,14 +199,14 @@ const frontmatter = shape<ProjectFrontmatter>({
           dark: opt(bool),
           diagram: opt(diagram),
         },
-        exactlyOne("image", "diagram"),
+        sectionContent,
       ),
     ),
   ),
   contributionsTitle: opt(str),
   contributions: opt(arr(str)),
   beyond: opt(str),
-  images: opt(arr(image)),
+  images: opt(arr(shortImage)),
 });
 
 /** Returns the error messages for one file's frontmatter (empty if valid). */
@@ -269,4 +287,14 @@ export function getAdjacentShortProjects(slug: string): {
 export function publicFileExists(src: string): boolean {
   if (/^https?:\/\//.test(src)) return true;
   return fs.existsSync(path.join(process.cwd(), "public", src));
+}
+
+/**
+ * Whether to render a media slot for `src`. In development a missing file
+ * still gets a placeholder box so layouts can be checked; in production it
+ * renders nothing and the layout closes the gap.
+ */
+export function showMedia(src: string | undefined): src is string {
+  if (!src) return false;
+  return publicFileExists(src) || process.env.NODE_ENV !== "production";
 }

@@ -10,6 +10,14 @@ export type ProjectImage = {
   alt: string;
 };
 
+/** How an image fills its box: "cover" crops (default), "contain" shows all of it. */
+export type MediaFit = "cover" | "contain";
+
+/** Short-project image. `fit: "contain"` keeps diagrams uncropped. */
+export type ShortProjectImage = ProjectImage & {
+  fit?: MediaFit;
+};
+
 export type GalleryImage = ProjectImage & {
   device: "desktop" | "mobile";
 };
@@ -49,7 +57,7 @@ export type Result = {
   label: string;
 };
 
-/** A deep-dive row: either image and paragraphs, or a diagram. */
+/** A deep-dive row: image and paragraphs, paragraphs only, or a diagram. */
 export type ProjectSection = {
   title: string;
   paragraphs?: string[];
@@ -70,6 +78,8 @@ export type ProjectFrontmatter = {
   tags?: string[];
   period?: string;
   cover?: string;
+  /** "contain" shows the whole cover on the panel colour instead of cropping it. */
+  coverFit?: MediaFit;
   panel?: string;
   roleSummary?: string;
   team?: string;
@@ -85,7 +95,7 @@ export type ProjectFrontmatter = {
   contributions?: string[];
   beyond?: string;
   /** Short projects. */
-  images?: ProjectImage[];
+  images?: ShortProjectImage[];
 };
 
 export type Project = {
