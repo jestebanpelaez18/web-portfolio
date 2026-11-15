@@ -22,10 +22,17 @@
   line-height: 1.05;
 }
 
+// At most three columns: each column is at least a third of the row (minus
+// gaps), and never under 300px, so it drops to two and one on narrower
+// screens without media queries. Featured and small cards share the columns.
 .grid {
+  --grid-gap: 28px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(min(300px, 100%), calc((100% - 2 * var(--grid-gap)) / 3)), 1fr)
+  );
+  gap: var(--grid-gap);
 }
 
 .others {
