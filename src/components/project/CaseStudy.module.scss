@@ -133,6 +133,11 @@
   grid-template-columns: minmax(0, 1fr);
 }
 
+/* Keep full-width text readable: about 70 characters a line. */
+.rowTextOnly .rowText p {
+  max-width: 70ch;
+}
+
 /* imageSide: "right" puts the image after the text, as in the mockups. */
 .imageRight .rowMedia {
   order: 1;

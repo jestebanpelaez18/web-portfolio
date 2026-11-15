@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 import type { Project } from "@/types";
 import { showMedia } from "@/utils/projects";
 
@@ -25,7 +27,7 @@ export const ShortProject = ({ project, previous, next }: ShortProjectProps) => 
     <article className={shared.page}>
       <ProjectHeader label={label} title={m.title} headline={m.headline} variant="short" />
 
-      <section className={styles.row}>
+      <section className={classNames(styles.row, !image && styles.single)}>
         {image && (
           <ProjectMedia
             src={image.src}

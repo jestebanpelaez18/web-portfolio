@@ -64,3 +64,9 @@
   font-size: 16px;
   color: var(--color-muted);
 }
+
+/* No image: the body spans the row, so cap text at about 70 characters a line. */
+.single .summary p,
+.single .highlightText {
+  max-width: 70ch;
+}
