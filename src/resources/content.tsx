@@ -1,20 +1,13 @@
-import {
-  About,
-  Home,
-  Person,
-  Social,
-  Work,
-} from "@/types";
+import type { About, Contact, Home, Person, Social, Work } from "@/types";
 
 const person: Person = {
   firstName: "Juan Esteban",
   lastName: "Pelaez",
-  name: `Juan Esteban Pelaez`,
+  name: "Juan Esteban Pelaez",
   role: "Software Engineer",
   avatar: "/images/avatar-v2.png",
   email: "juanes.pelaez18@gmail.com",
   location: "Europe/Helsinki", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Spanish"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const social: Social = [
@@ -43,230 +36,143 @@ const home: Home = {
   image: "/images/og/home.png",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Built to engineer, driven to solve.</>,
-  featured: {
-    display: false,
-    title: <>Featured project</>,
-    href: "/work/transcendence-real-time-multiplayer-platform",
+  description:
+    "Based in Helsinki. I build web applications and data pipelines, with a systems background in C and C++.",
+  hero: {
+    title: "Software Engineer",
+    subline:
+      "Based in Helsinki. I build web applications and data pipelines, with a systems background in C and C++.",
   },
-  subline: (
-    <>
-      I'm Juan Esteban, a Software engineer based in Helsinki with strong
-      engineering fundamentals and a genuine passion for building things that
-      work. I enjoy digging into hard problems, understanding how things work at
-      a deep level, and finding the right solution even when the path is not
-      obvious. I am always learning, always building, and I bring the same
-      curiosity and ownership to everything I work on, whether it is systems
-      programming, full-stack development, or data engineering.
-    </>
-  ),
+  aboutStrip: {
+    title: "About",
+    paragraphs: [
+      "I studied Mechanical Engineering, where projects with electronics and embedded systems got me into programming. I moved to Finland and completed the Software Engineering programme at Hive Helsinki, building everything from a Unix shell in C to a real-time multiplayer backend.",
+      "Since then I have designed and shipped an e-commerce platform for a client and built data engineering projects on my own.",
+    ],
+    link: { label: "More about me →", href: "/about" },
+  },
 };
 
 const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `${person.name} is a ${person.role} based in Helsinki`,
-  tableOfContent: {
-    display: true,
-    subItems: false,
-  },
-  avatar: {
-    display: true,
-  },
-  calendar: {
-    display: false,
-    link: "https://cal.com",
+  description: "From mechanical engineering to C, and from C to the web and data.",
+  header: {
+    title: "About",
+    subline: "From mechanical engineering to C, and from C to the web and data.",
   },
   intro: {
-    display: true,
-    title: "Introduction",
-    description:
-      "I'm Juan Esteban, a software engineer based in Helsinki, originally from Spain. My path into software started during my Mechanical Engineering studies, where working on engineering projects involving electronics, embedded systems, and data sparked my interest in programming.\n\nI made the full switch, moved to Finland, and spent three years at Hive Helsinki, a project-based engineering school part of the global 42 network, where I built strong foundations in C and C++, systems programming, and problem solving through real hands-on projects.\n\nSince then I have been working as a freelance full-stack developer and building personal projects in data engineering on the side. I take full ownership of what I build and I genuinely enjoy digging into hard problems.\n\nOutside of work I stay active with football, gym, running, and snowboarding. Currently open to full-time roles and freelance projects.",
+    photo: { src: "/images/avatar-v3.jpg", alt: `Portrait of ${person.name}` },
+    facts: [
+      { label: "Based in", value: "Helsinki, Finland" },
+      { label: "Available", value: "Full-time roles" },
+    ],
+    cv: { label: "Download CV (PDF)", href: "/cv/JuanEsteban_Pelaez_CV.pdf" },
+    paragraphs: [
+      "I'm Juan Esteban, a software engineer based in Helsinki.",
+      "I first got into programming during Mechanical Engineering, through projects with electronics, embedded systems and PLC automation. I moved to Finland and completed the Software Engineering programme at Hive Helsinki, where I built a Unix shell, an IRC server, a raycasting engine and a multiplayer backend from scratch, in C, C++ and Python.",
+      "After Hive I worked as a freelance software engineer for Arabian Fragrance, a perfume company in Helsinki. I built their online store end to end and ended up setting up a large part of the business around it. On my own, I build data engineering projects, like a pipeline on HSL's realtime transit data.",
+    ],
   },
-  work: {
-    display: true,
-    title: "Work Experience",
-    experiences: [
+  experience: {
+    title: "Experience",
+    items: [
       {
-        company: "Arabian Fragrance Company Ltd Oy",
-        timeframe: "July 2025 - Present",
-        role: "Freelance Full Stack Developer",
-        achievements: [
-          <>
-            Designed and developed a full-stack e-commerce web application from
-            scratch for a luxury fragrance brand launching in Helsinki, covering
-            a catalogue of 20+ products across perfumes, body mists, and
-            traditional oud blends.
-          </>,
-          <>
-            Built the full storefront with Next.js, TypeScript, and Tailwind
-            CSS, handling UI design and implementation end to end across
-            multiple sections including landing page, collections, shop, and
-            about pages.
-          </>,
-          <>
-            Integrated the Shopify Storefront API via GraphQL to manage product
-            data, cart logic, and dynamic rendering, connecting the custom
-            frontend to a headless Shopify backend.
-          </>,
-          <>
-            Managed deployments, environment configuration, and CI/CD workflows
-            using GitHub Actions, maintaining a stable live system from
-            development to production.
-          </>,
-          <>
-            Implemented cross-browser and responsive testing with Playwright to
-            ensure consistent behavior across different browsers and devices.
-          </>,
+        company: "Arabian Fragrance Company",
+        role: "Freelance Software Engineer",
+        period: "Jul 2025 - Oct 2026",
+        bullets: [
+          "Built the full storefront with Next.js, TypeScript, and Tailwind CSS, owning UI/UX design and implementation across all sections.",
+          "Built a custom, type-safe GraphQL fetcher to integrate the Shopify Storefront API directly, avoiding a heavy third-party SDK.",
+          "Built the internationalization system for English, Finnish, and Swedish from scratch, including locale-based routing and per-page metadata.",
+          "Identified that the online store and physical shop ran as disconnected systems, and independently built a unified Shopify-based architecture to fix it.",
+          "Implemented cross-browser and automated testing with Playwright to catch regressions before shipping.",
+          "Took full ownership of the project with no roadmap handed down, leading scope that spanned e-commerce, physical retail, import operations, and staff training.",
         ],
-        images: [],
+        link: {
+          label: "Read the case study →",
+          href: "/work/ArabianFragance-Headless-E-Commerce-Platform",
+        },
       },
     ],
   },
-  studies: {
-    display: true,
-    title: "Studies",
-    institutions: [
+  education: {
+    title: "Education",
+    items: [
       {
-        name: "Hive Helsinki",
-        title: "Software Engineering",
-        timeframe: "Oct 2022 - 2026",
-        description: (
-          <>
-            Built strong foundations in systems programming, algorithms, data
-            structures, memory management, and software architecture. Developed
-            practical skills across the full stack, from low-level C and C++ to
-            backend development, databases, networking, and containerization.
-            Learned how to approach complex problems methodically, work
-            collaboratively in team projects, and take full ownership of what I
-            build, all through real projects built from scratch.
-          </>
-        ),
+        school: "Hive Helsinki",
+        programme: "Software Engineering",
+        period: "Oct 2022 - Oct 2024",
+        text: "Completed a project-based Software Engineering programme. Focused on C and C++ programming, algorithms, data structures, systems architecture, and networking, all built through real projects and peer review.",
       },
       {
-        name: "University of Antioquia",
-        title: "Mechanical Engineering",
-        timeframe: "2017 - 2022",
-        description: (
-          <>
-            A rigorous engineering education that built strong analytical
-            foundations across mathematics, physics, thermodynamics, materials
-            science, and engineering design. Learned to break down complex
-            systems, work with data, and approach problems with precision.
-            Practical coursework spanned electronics, circuit design, PLC
-            automation, embedded systems, and 3D mechanical design, combining
-            both hardware and software disciplines.
-          </>
-        ),
+        school: "University of Antioquia",
+        programme: "Mechanical Engineering",
+        period: "2017 - 2022",
+        text: "Studied Mechanical Engineering with coursework in mathematics, electronics, Arduino programming, and PLC automation.",
       },
     ],
   },
-  technical: {
-    display: true,
-    title: "Technical Skills",
-    skills: [
+  skills: {
+    title: "Skills",
+    groups: [
+      { label: "Programming", items: "Python, SQL, TypeScript, JavaScript, Bash, C, C++" },
       {
-        title: "Languages",
-        description: <>Python, TypeScript, JavaScript, SQL, C, C++, Bash</>,
-        tags: [
-          { name: "Python", icon: "python" },
-          { name: "TypeScript", icon: "typescript" },
-          { name: "JavaScript", icon: "javascript" },
-          { name: "C/C++", icon: "cpp" },
-          { name: "SQL", icon: "sql" },
-          { name: "Bash", icon: "bash" },
-        ],
-        images: [],
+        label: "Web and APIs",
+        items:
+          "React, Next.js, Node.js, Django, FastAPI, REST APIs, WebSockets, GraphQL, Tailwind CSS, Nginx",
       },
       {
-        title: "Web & APIs",
-        description: (
-          <>
-            React, Next.js, Node.js, Django, FastAPI, REST APIs, WebSockets,
-            GraphQL, Nginx, Tailwind CSS
-          </>
-        ),
-        tags: [
-          { name: "React", icon: "react" },
-          { name: "Next.js", icon: "nextjs" },
-          { name: "Node.js", icon: "nodejs" },
-          { name: "Django", icon: "django" },
-          { name: "FastAPI", icon: "fastapi" },
-          { name: "GraphQL", icon: "graphql" },
-          { name: "Nginx", icon: "nginx" },
-          { name: "Tailwind CSS", icon: "tailwindcss" },
-        ],
-        images: [],
+        label: "Data",
+        items: "PostgreSQL, dbt, PySpark, Spark SQL, SparkML, Airflow, Azure Blob Storage",
       },
       {
-        title: "Data Engineering",
-        description: (
-          <>
-            PostgreSQL, PySpark, Airflow, dbt, Azure Blob Storage, MySQL,
-            SQLite, MariaDB, Pandas, NumPy
-          </>
-        ),
-        tags: [
-          { name: "PostgreSQL", icon: "postgresql" },
-          { name: "PySpark", icon: "apacheSpark" },
-          { name: "Airflow", icon: "apacheAirflow" },
-          { name: "dbt", icon: "dbt" },
-          { name: "Azure", icon: "azure" },
-        ],
-        images: [],
+        label: "Cloud and infrastructure",
+        items: "Docker, Docker Compose, GitHub Actions, Linux, Git, Terraform, GCP",
       },
+      { label: "Testing", items: "Playwright, Postman, unit testing" },
       {
-        title: "Infrastructure & Tooling",
-        description: (
-          <>
-            Docker, CI/CD, GitHub Actions, Linux, Git, Shell Scripting, Agile,
-            Scrum, Jira
-          </>
-        ),
-        tags: [
-          { name: "Docker", icon: "docker" },
-          { name: "GitHub Actions", icon: "github" },
-          { name: "Linux", icon: "linux" },
-          { name: "Git", icon: "git" },
-        ],
-        images: [],
-      },
-      {
-        title: "Testing & QA",
-        description: (
-          <>
-            Automated testing, unit testing, CI/CD pipelines, debugging, log
-            analysis, Postman, and Playwright
-          </>
-        ),
-        tags: [
-          { name: "Postman", icon: "postman" },
-          { name: "Playwright", icon: "playwright" },
-        ],
-        images: [],
-      },
-      {
-        title: "AI Tools",
-        description: (
-          <>
-            Actively uses Claude, GitHub Copilot, and Gemini as core parts of
-            the development workflow for code generation, debugging,
-            architecture decisions, and accelerating delivery. Currently
-            exploring agentic AI development and LLM integrations through
-            personal projects.
-          </>
-        ),
-        tags: [
-          { name: "Claude", icon: "anthropic" },
-          { name: "GitHub Copilot", icon: "github" },
-          { name: "Gemini", icon: "google" },
-        ],
-        images: [],
+        label: "AI",
+        items: "Anthropic API, structured LLM output, Claude, Codex, GitHub Copilot",
       },
     ],
   },
+  certifications: {
+    title: "Certifications",
+    items: [
+      { name: "Machine Learning with Apache Spark", issuer: "IBM", date: "Feb 2026" },
+      { name: "Introduction to Big Data with Spark and Hadoop", issuer: "IBM", date: "Jan 2026" },
+      {
+        name: "ETL and Data Pipelines with Shell, Airflow, and Kafka",
+        issuer: "IBM",
+        date: "Mar 2025",
+      },
+      {
+        name: "Databases and SQL for Data Science with Python",
+        issuer: "IBM",
+        date: "Jan 2025",
+      },
+    ],
+  },
+  languages: {
+    title: "Languages",
+    items: [
+      { name: "Spanish", level: "Native" },
+      { name: "English", level: "Professional" },
+      { name: "Italian", level: "Intermediate" },
+      { name: "Finnish", level: "Beginner" },
+    ],
+  },
+  outsideWork: {
+    title: "Outside work",
+    text: "Football, the gym, running, and snowboarding when the Finnish winter allows it.",
+  },
+};
+
+const contact: Contact = {
+  label: "Contact",
+  title: "Let's talk",
 };
 
 const work: Work = {
@@ -276,4 +182,4 @@ const work: Work = {
   description: `Backend, full-stack, and data engineering projects by ${person.name}`,
 };
 
-export { person, social, home, about, work };
+export { person, social, home, about, contact, work };

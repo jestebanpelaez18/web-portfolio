@@ -1,0 +1,23 @@
+.section {
+  padding-bottom: 96px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 22px;
+}
+
+// Scoped under .links to outrank Once UI's global `a:not(.button)` rule.
+.links .link {
+  color: var(--color-text);
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+.links .email {
+  color: var(--color-accent);
+}

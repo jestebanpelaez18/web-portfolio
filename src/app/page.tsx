@@ -1,15 +1,9 @@
-import {
-  Heading,
-  Text,
-  Button,
-  Avatar,
-  Column,
-  Badge,
-  Row,
-  Schema,
-  Meta,
-} from "@once-ui-system/core";
-import { home, about, person, baseURL } from "@/resources";
+import { Column, Meta, Schema } from "@once-ui-system/core";
+import Link from "next/link";
+
+import { ContactSection, PageHero, Section, SelectedWork } from "@/components";
+import styles from "@/components/home/Home.module.scss";
+import { about, baseURL, home, person } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -22,8 +16,10 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  const { hero, aboutStrip } = home;
+
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column fillWidth>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -38,76 +34,22 @@ export default function Home() {
         }}
       />
 
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <Row fillWidth horizontal="center" paddingTop="16" paddingBottom="32" paddingLeft="12">
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </Row>
-          )}
+      <PageHero variant="home" title={hero.title} subline={hero.subline} />
 
-          <Row fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </Row>
+      <SelectedWork />
 
-          <Row fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </Row>
+      <Section id="about" title={aboutStrip.title} spacing="compact">
+        {aboutStrip.paragraphs.map((paragraph) => (
+          <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
+            {paragraph}
+          </p>
+        ))}
+        <Link href={aboutStrip.link.href} className={styles.more}>
+          {aboutStrip.link.label}
+        </Link>
+      </Section>
 
-          <Row paddingTop="12" horizontal="center" paddingLeft="12">
-            <Row gap="12" horizontal="center" wrap>
-              <Button
-                id="about"
-                data-border="rounded"
-                href={about.path}
-                variant="secondary"
-                size="m"
-                weight="default"
-                arrowIcon
-              >
-                <Row gap="8" vertical="center" paddingRight="4">
-                  {about.avatar.display && (
-                    <Avatar
-                      marginRight="8"
-                      style={{ marginLeft: "-0.75rem" }}
-                      src={person.avatar}
-                      size="m"
-                    />
-                  )}
-                  About me
-                </Row>
-              </Button>
-
-              <Button
-                id="work"
-                data-border="rounded"
-                href="/work"
-                variant="primary"
-                size="m"
-                weight="default"
-                arrowIcon
-              >
-                View projects
-              </Button>
-            </Row>
-          </Row>
-        </Column>
-      </Column>
-
+      <ContactSection />
     </Column>
   );
 }

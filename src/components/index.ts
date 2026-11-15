@@ -5,5 +5,7 @@ export { RouteGuard } from "@/components/RouteGuard";
 export { Providers } from "@/components/Providers";
 export { Section } from "@/components/Section";
 export { Eyebrow } from "@/components/Eyebrow";
+export { PageHero } from "@/components/PageHero";
+export { ContactSection } from "@/components/ContactSection";
 export { SelectedWork } from "@/components/SelectedWork";
 export * from "@/components/project";

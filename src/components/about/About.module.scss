@@ -1,0 +1,200 @@
+// Intro, left column: photo, facts, CV button.
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  dd {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+a.cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  min-height: 48px;
+  padding: 0 24px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 16px;
+  font-weight: 500;
+
+  &:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+// Intro, right column.
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.lead p,
+.leadText {
+  margin: 0;
+  font-size: var(--size-lead);
+  line-height: 1.5;
+}
+
+// Experience and education entries.
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.entryHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.entryTitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.period {
+  font-size: 16px;
+  color: var(--color-muted);
+}
+
+.role {
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+.arrow {
+  color: var(--color-accent);
+}
+
+a.textLink {
+  margin-top: 10px;
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+.secondary {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--color-secondary);
+}
+
+// Skills.
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 40px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+}
+
+.skillLabel {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--label-tracking);
+  color: var(--color-muted);
+}
+
+// Certifications: hairline rows.
+.certifications {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 16px;
+    border-bottom: 1px solid var(--color-hairline);
+    font-size: 19px;
+  }
+}
+
+// Languages.
+.languages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px;
+}
+
+.language {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  .muted {
+    font-size: 16px;
+  }
+}
+
+.languageName {
+  font-size: 26px;
+}
+
+.muted {
+  color: var(--color-muted);
+}

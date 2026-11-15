@@ -1,5 +1,5 @@
-import { IconName } from "@/resources/icons";
-import { zones } from "tzdata";
+import type { IconName } from "@/resources/icons";
+import type { zones } from "tzdata";
 
 /**
  * IANA time zone string (e.g., 'Asia/Calcutta', 'Europe/Vienna').
@@ -25,8 +25,6 @@ export type Person = {
   email: string;
   /** IANA time zone location */
   location: IANATimeZone;
-  /** Languages spoken */
-  languages?: string[];
 };
 
 /**
@@ -69,8 +67,20 @@ export interface BasePageConfig {
   image?: `/images/${string}` | string;
 }
 
+/** A text link, e.g. "More about me →". */
+export type TextLink = {
+  label: string;
+  href: string;
+};
+
+/** Page h1 and its serif subline. */
+export type PageHeader = {
+  title: string;
+  subline: string;
+};
+
 /**
- * Home page configuration.
+ * Home page configuration (docs/redesign/content/home-and-about.md).
  */
 export interface Home extends BasePageConfig {
   /** The image to be displayed in metadata
@@ -78,131 +88,73 @@ export interface Home extends BasePageConfig {
    * The image needs to be put inside `/public/images/` directory
    */
   image: `/images/${string}` | string;
-  /** The headline of the home page */
-  headline: React.ReactNode;
-  /** Featured badge, which appears above the headline */
-  featured: {
-    display: boolean;
-    title: React.ReactNode;
-    href: string;
+  hero: PageHeader;
+  /** Two-column "About" strip with a link to /about. */
+  aboutStrip: {
+    title: string;
+    paragraphs: string[];
+    link: TextLink;
   };
-  /** The sub text which appears below the headline */
-  subline: React.ReactNode;
 }
 
 /**
- * About page configuration.
- * @description Configuration for the About page, including sections for table of contents, avatar, calendar, introduction, work experience, studies, and technical skills.
+ * About page configuration (docs/redesign/content/home-and-about.md).
+ * Sections render in this order: intro, experience, education, skills,
+ * certifications, languages, outside work, contact.
  */
 export interface About extends BasePageConfig {
-  /** Table of contents configuration */
-  tableOfContent: {
-    /** Whether to display the table of contents */
-    display: boolean;
-    /** Whether to show sub-items in the table of contents */
-    subItems: boolean;
-  };
-  /** Avatar section configuration */
-  avatar: {
-    /** Whether to display the avatar */
-    display: boolean;
-  };
-  /** Calendar section configuration */
-  calendar: {
-    /** Whether to display the calendar */
-    display: boolean;
-    /** Link to the calendar */
-    link: string;
-  };
-  /** Introduction section */
+  header: PageHeader;
   intro: {
-    /** Whether to display the introduction */
-    display: boolean;
-    /** Title of the introduction section */
-    title: string;
-    /** Description of the introduction section */
-    description: React.ReactNode;
+    photo: { src: string; alt: string };
+    /** Small labelled facts under the photo ("BASED IN", "AVAILABLE"). */
+    facts: Array<{ label: string; value: string }>;
+    /** Shown only once the file exists in public/. */
+    cv: TextLink;
+    paragraphs: string[];
   };
-  /** Work experience section */
-  work: {
-    /** Whether to display work experience */
-    display: boolean;
-    /** Title for the work experience section */
+  experience: {
     title: string;
-    /** List of work experiences */
-    experiences: Array<{
-      /** Company name */
+    items: Array<{
       company: string;
-      /** Timeframe of employment */
-      timeframe: string;
-      /** Role or job title */
       role: string;
-      /** Achievements at the company */
-      achievements: React.ReactNode[];
-      /** Images related to the experience */
-      images?: Array<{
-        /** Image source path */
-        src: string;
-        /** Image alt text */
-        alt: string;
-        /** Image width ratio */
-        width: number;
-        /** Image height ratio */
-        height: number;
-      }>;
+      period: string;
+      bullets: string[];
+      link?: TextLink;
     }>;
   };
-  /** Studies/education section */
-  studies: {
-    /** Whether to display studies section */
-    display: boolean;
-    /** Title for the studies section */
+  education: {
     title: string;
-    /** List of institutions attended */
-    institutions: Array<{
-      /** Institution name */
-      name: string;
-
-      /** Title of the studies section */
-      title: string;
-
-      /** Timeframe of studies */
-      timeframe: string;
-      /** Description of studies */
-      description: React.ReactNode;
+    items: Array<{
+      school: string;
+      programme: string;
+      period: string;
+      text: string;
     }>;
   };
-  /** Technical skills section */
-  technical: {
-    /** Whether to display technical skills section */
-    display: boolean;
-    /** Title for the technical skills section */
+  skills: {
     title: string;
-    /** List of technical skills */
-    skills: Array<{
-      /** Skill title */
-      title: string;
-      /** Skill description */
-      description?: React.ReactNode;
-      /** Skill tags */
-      tags?: Array<{
-        name: string;
-        icon?: string;
-      }>;
-      /** Images related to the skill */
-      images?: Array<{
-        /** Image source path */
-        src: string;
-        /** Image alt text */
-        alt: string;
-        /** Image width ratio */
-        width: number;
-        /** Image height ratio */
-        height: number;
-      }>;
-    }>;
+    groups: Array<{ label: string; items: string }>;
+  };
+  certifications: {
+    title: string;
+    /** Newest first. */
+    items: Array<{ name: string; issuer: string; date: string }>;
+  };
+  languages: {
+    title: string;
+    items: Array<{ name: string; level: string }>;
+  };
+  outsideWork: {
+    title: string;
+    text: string;
   };
 }
+
+/** "Let's talk" strip on home and About. Links come from `person` and `social`. */
+export type Contact = {
+  label: string;
+  title: string;
+};
 
 /**
  * Work/projects page configuration.
