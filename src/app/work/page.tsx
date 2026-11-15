@@ -1,6 +1,7 @@
-import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
-import { Projects } from "@/components/work/Projects";
+import { Column, Meta, Schema } from "@once-ui-system/core";
+
+import { SelectedWork } from "@/components";
+import { about, baseURL, person, work } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -14,7 +15,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m" paddingTop="24">
+    <Column fillWidth paddingTop="24">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -28,19 +29,7 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
-      <Text
-        align="center"
-        onBackground="neutral-weak"
-        variant="body-default-l"
-        marginBottom="xl"
-      >
-        A selection of backend, full-stack, and data engineering projects focused
-        on production reliability.
-      </Text>
-      <Projects />
+      <SelectedWork headingLevel="h1" />
     </Column>
   );
 }

@@ -1,8 +1,12 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   text-decoration: none;
+  color: var(--color-text);
+}
+
+// Scoped to outrank Once UI's global `a:not(.button)` colour.
+a.card {
   color: var(--color-text);
 
   &:hover .title {
@@ -10,14 +14,40 @@
   }
 }
 
+.large {
+  gap: 14px;
+
+  .title {
+    font-size: 26px;
+  }
+
+  .headline {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .label {
+    margin-top: 4px;
+  }
+}
+
+.small {
+  gap: 10px;
+
+  .title {
+    font-size: 22px;
+  }
+
+  .headline {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+}
+
 .title {
-  margin-top: 8px;
-  font-size: 20px;
-  font-weight: 600;
+  transition: color var(--transition-micro-medium, 0.15s);
 }
 
 .headline {
-  font-size: 17px;
-  line-height: 1.45;
   color: var(--color-muted);
 }

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 
@@ -9,28 +10,41 @@ import styles from "./ProjectCard.module.scss";
 
 type ProjectCardProps = {
   project: Project;
+  /** "large" for featured projects (4:5 cover, kind label), "small" for the rest (16:9, tags). */
+  size?: "large" | "small";
   priority?: boolean;
 };
 
-/** Cover, title, headline and kind. Phase 4 builds the final large and small cards. */
-export const ProjectCard = ({ project, priority }: ProjectCardProps) => {
+/** Home and /work card: cover, title, headline and a caps label. Links to the project page. */
+export const ProjectCard = ({ project, size = "small", priority }: ProjectCardProps) => {
   const { slug, metadata } = project;
+  const large = size === "large";
   const panelStyle = metadata.panel ? ({ "--panel": metadata.panel } as CSSProperties) : undefined;
+  const label = large ? metadata.kind : (metadata.tags ?? []).join(" · ");
 
   return (
-    <Link href={`/work/${slug}`} className={styles.card} style={panelStyle}>
+    <Link
+      href={`/work/${slug}`}
+      className={classNames(styles.card, large ? styles.large : styles.small)}
+      style={panelStyle}
+    >
       {metadata.cover && (
         <ProjectMedia
           src={metadata.cover}
           alt={metadata.title}
-          ratio="16 / 9"
+          ratio={large ? "4 / 5" : "16 / 9"}
+          tone={large ? "panel" : "dark"}
           sizes="(max-width: 700px) 100vw, 33vw"
           priority={priority}
         />
       )}
       <span className={styles.title}>{metadata.title}</span>
       <span className={styles.headline}>{metadata.headline}</span>
-      <Eyebrow>{metadata.kind}</Eyebrow>
+      {label && (
+        <Eyebrow size={large ? "m" : "s"} className={styles.label}>
+          {label}
+        </Eyebrow>
+      )}
     </Link>
   );
 };
