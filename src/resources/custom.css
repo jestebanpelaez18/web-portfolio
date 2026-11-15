@@ -25,6 +25,9 @@
   --container-max: 1440px;
   --container-pad: clamp(16px, 4vw, 40px);
   --size-section-title: clamp(40px, 4.5vw, 64px);
+  /* Home and About heroes (design-reference/Main.html, About.html). */
+  --size-page-title: clamp(56px, 8vw, 112px);
+  --size-hero-subline: clamp(30px, 3.6vw, 52px);
   /* Project pages (docs/redesign/design-reference). */
   --size-project-title: clamp(56px, 7vw, 104px);
   --size-project-subline: clamp(30px, 3.4vw, 50px);
@@ -90,9 +93,15 @@
   --brand-on-background-strong: var(--color-accent);
 }
 
+/*
+ * Instrument Serif only ships weight 400. Serif text stays at 400, and
+ * turning off weight synthesis keeps the browser from faking a bold if a
+ * heavier weight slips through. Geist is variable, so it is unaffected.
+ */
 body {
   background: var(--color-bg);
   color: var(--color-text);
+  font-synthesis-weight: none;
 }
 
 h1,
