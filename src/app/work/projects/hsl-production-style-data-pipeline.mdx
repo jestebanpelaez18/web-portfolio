@@ -54,14 +54,14 @@ highlights:
   - title: "Nested feeds, parsed properly"
     text: "Python and PySpark jobs unpack nested Protobuf messages and cope with schema drift, with structured logging."
 gallery:
-  - src: "/images/projects/hsl/airflow-dag.png"
-    alt: "Airflow DAG grid view with successful runs"
+  - src: "/images/projects/hsl/cover-01.png"
+    alt: "Airflow graph view of a gtfs_realtime_dag run"
     device: "desktop"
-  - src: "/images/projects/hsl/dbt-lineage.png"
+  - src: "/images/projects/hsl/cover-03.png"
     alt: "dbt lineage graph"
     device: "desktop"
-  - src: "/images/projects/hsl/gold-query.png"
-    alt: "dbt test results or a query on the Gold layer"
+  - src: "/images/projects/hsl/cover-02.png"
+    alt: "Airflow DAGs list: realtime ingestion every 30 minutes and daily model training"
     device: "desktop"
 results:
   - value: "3"
@@ -75,10 +75,6 @@ sections:
     paragraphs:
       - "With the history modelled in the Gold layer, I trained a SparkML Random Forest (50 trees, max depth 5) to predict whether a bus will skip a stop."
       - "Evaluated on historical trip data, it reaches an AUC of 0.92."
-    image:
-      src: "/images/projects/hsl/model.png"
-      alt: "ROC curve or feature importance of the model"
-    imageSide: "left"
   - title: "When something breaks"
     paragraphs:
       - "Failures get traced from the Airflow task logs down to the container and the code. Because writes are idempotent, fixing the cause and rerunning the task is safe."
