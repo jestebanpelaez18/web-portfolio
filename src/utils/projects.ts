@@ -108,12 +108,15 @@ function shape<T>(
   };
 }
 
-const image = shape<ProjectImage>({ src: req(str), alt: req(str) });
+const fit = opt(oneOf("cover", "contain"));
+
+const image = shape<ProjectImage>({ src: req(str), alt: req(str), fit });
 
 const shortImage = shape<ShortProjectImage>({
   src: req(str),
   alt: req(str),
-  fit: opt(oneOf("cover", "contain")),
+  fit,
+  dark: opt(bool),
 });
 
 const step: Check = shape<DiagramStep>(
@@ -164,7 +167,7 @@ const frontmatter = shape<ProjectFrontmatter>({
   tags: opt(arr(str)),
   period: opt(str),
   cover: opt(str),
-  coverFit: opt(oneOf("cover", "contain")),
+  coverFit: fit,
   panel: opt(hex),
   roleSummary: opt(str),
   team: opt(str),
@@ -183,6 +186,7 @@ const frontmatter = shape<ProjectFrontmatter>({
       shape<GalleryImage>({
         src: req(str),
         alt: req(str),
+        fit,
         device: req(oneOf("desktop", "mobile")),
       }),
     ),

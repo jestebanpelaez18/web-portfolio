@@ -33,9 +33,8 @@ export const ShortProject = ({ project, previous, next }: ShortProjectProps) => 
             src={image.src}
             alt={image.alt}
             ratio="4 / 3"
-            // Terminal recordings sit on dark unless the project has its own panel;
-            // a contained diagram without a panel sits on white, not in black bars.
-            tone={m.panel ? "panel" : image.fit === "contain" ? "white" : "dark"}
+            // The project's panel if it has one, dark for terminals, otherwise white.
+            tone={m.panel ? "panel" : image.dark ? "dark" : "white"}
             sizes="(max-width: 700px) 100vw, 50vw"
             fit={image.fit}
             priority

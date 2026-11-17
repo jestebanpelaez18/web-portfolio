@@ -15,7 +15,7 @@ type ProjectMediaProps = {
   tone?: "panel" | "dark" | "white";
   /** next/image sizes hint. */
   sizes?: string;
-  /** "contain" shows the whole image (diagrams); default crops to fill. */
+  /** Default "contain" shows the whole image on the tone colour; "cover" crops to fill. */
   fit?: MediaFit;
   priority?: boolean;
   className?: string;
@@ -33,14 +33,14 @@ export const ProjectMedia = ({
   ratio,
   tone = "panel",
   sizes = "100vw",
-  fit = "cover",
+  fit = "contain",
   priority = false,
   className,
 }: ProjectMediaProps) => {
   if (!showMedia(src)) return null;
   const exists = publicFileExists(src);
   const isVideo = /\.(mp4|webm)$/i.test(src);
-  const fillClass = classNames(styles.fill, fit === "contain" && styles.contain);
+  const fillClass = classNames(styles.fill, fit === "cover" && styles.cover);
 
   return (
     <div

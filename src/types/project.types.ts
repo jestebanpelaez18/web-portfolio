@@ -5,17 +5,18 @@
 
 export type ProjectFormat = "case-study" | "short";
 
+/** How an image fills its box: "contain" shows all of it (default), "cover" crops to fill. */
+export type MediaFit = "cover" | "contain";
+
 export type ProjectImage = {
   src: string;
   alt: string;
+  fit?: MediaFit;
 };
 
-/** How an image fills its box: "cover" crops (default), "contain" shows all of it. */
-export type MediaFit = "cover" | "contain";
-
-/** Short-project image. `fit: "contain"` keeps diagrams uncropped. */
+/** Short-project image. `dark: true` puts it on a dark background (terminals). */
 export type ShortProjectImage = ProjectImage & {
-  fit?: MediaFit;
+  dark?: boolean;
 };
 
 export type GalleryImage = ProjectImage & {
@@ -78,7 +79,7 @@ export type ProjectFrontmatter = {
   tags?: string[];
   period?: string;
   cover?: string;
-  /** "contain" shows the whole cover on the panel colour instead of cropping it. */
+  /** "cover" crops the cover to fill its card; by default it is shown whole on the panel colour. */
   coverFit?: MediaFit;
   panel?: string;
   roleSummary?: string;

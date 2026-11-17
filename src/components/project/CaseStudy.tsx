@@ -4,7 +4,7 @@ import { Fragment, type ReactNode } from "react";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Section } from "@/components/Section";
 import type { Project } from "@/types";
-import { showMedia } from "@/utils/projects";
+import { imageSize, showMedia } from "@/utils/projects";
 
 import styles from "./CaseStudy.module.scss";
 import { Diagram } from "./Diagram";
@@ -20,6 +20,12 @@ type CaseStudyProps = {
 
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
 
+/** A phone screenshot's own shape, so it shows whole with no bars; 9:19 until the file exists. */
+const phoneRatio = (src: string) => {
+  const size = imageSize(src);
+  return size ? `${size.width} / ${size.height}` : "9 / 19";
+};
+
 /**
  * Case study template (docs/redesign/BRIEF.md, "Case study").
  * Each block renders only when its field exists, in the brief's order.
@@ -33,12 +39,12 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
 
   // In production, media whose file is missing is left out (see showMedia).
   if (m.hero?.image) {
-    const { src, alt } = m.hero.image;
+    const { src, alt, fit } = m.hero.image;
     if (showMedia(src)) {
       blocks.push({
         key: "hero",
         panel: true,
-        render: () => <ProjectMedia src={src} alt={alt} ratio="16 / 8" priority />,
+        render: () => <ProjectMedia src={src} alt={alt} fit={fit} ratio="16 / 8" priority />,
       });
     }
   } else if (m.hero?.diagram) {
@@ -98,14 +104,13 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
       panel: true,
       render: () => (
         <div className={styles.gallery}>
-          {desktop.map(({ src, alt }, i) => (
+          {desktop.map(({ src, alt, fit }, i) => (
             <ProjectMedia
               key={src}
               src={src}
               alt={alt}
-              // Screenshots vary in shape; show them whole on the panel colour.
               tone="panel"
-              fit="contain"
+              fit={fit}
               ratio={i === 0 ? "16 / 9" : "4 / 3"}
               sizes={
                 i === 0 ? "(max-width: 1440px) 100vw, 1440px" : "(max-width: 700px) 100vw, 50vw"
@@ -115,13 +120,14 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
           ))}
           {mobile.length > 0 && (
             <div className={styles.galleryMobile}>
-              {mobile.map(({ src, alt }) => (
+              {mobile.map(({ src, alt, fit }) => (
                 <ProjectMedia
                   key={src}
                   src={src}
                   alt={alt}
                   tone="white"
-                  ratio="9 / 19"
+                  fit={fit}
+                  ratio={phoneRatio(src)}
                   sizes="300px"
                   className={styles.phone}
                 />
@@ -184,6 +190,7 @@ export const CaseStudy = ({ project, next }: CaseStudyProps) => {
             <ProjectMedia
               src={image.src}
               alt={image.alt}
+              fit={image.fit}
               ratio="4 / 3"
               tone={section.dark ? "dark" : "panel"}
               sizes="(max-width: 700px) 100vw, 50vw"

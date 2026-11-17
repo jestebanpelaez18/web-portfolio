@@ -40,7 +40,7 @@
   }
 }
 
-/* Gallery: first desktop shot full width, the rest two per row, phones in a row. */
+/* Gallery: first desktop shot full width, the rest two per row, phones centred as a group. */
 .gallery {
   display: grid;
   /* At most two columns; one below ~632px. */
@@ -56,16 +56,15 @@
 
 .galleryMobile {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-  gap: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  gap: 32px;
 }
 
 .phone {
-  justify-self: center;
-  max-width: 300px;
-  max-height: 620px;
+  width: min(280px, 100%);
 }
 
 /* In numbers: value above label (label first in the DOM for <dl>). */
