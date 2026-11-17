@@ -37,17 +37,17 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description:
-    "Based in Helsinki. I build web applications and data pipelines, with a systems background in C and C++.",
+    "Based in Helsinki. I design and build software, from systems programming to web applications and data pipelines.",
   hero: {
     title: "Software Engineer",
     subline:
-      "Based in Helsinki. I build web applications and data pipelines, with a systems background in C and C++.",
+      "Based in Helsinki. I design and build software, from systems programming to web applications and data pipelines.",
   },
   aboutStrip: {
     title: "About",
     paragraphs: [
-      "I studied Mechanical Engineering, where projects with electronics and embedded systems got me into programming. I moved to Finland and completed the Software Engineering programme at Hive Helsinki, building everything from a Unix shell in C to a real-time multiplayer backend.",
-      "Since then I have designed and shipped an e-commerce platform for a client and built data engineering projects on my own.",
+      "At Hive Helsinki I studied software engineering, starting in C and C++ close to the operating system and moving on to web development and infrastructure. Knowing how each layer works, from memory and processes to networks and databases, helps me make sound decisions about how a system is designed and how its parts fit together. Hive also taught me to work through problems I have not seen before.",
+      "After Hive I worked for over a year as the only developer at Arabian Fragrance, a perfume company in Helsinki, where I built and ran their online store and helped set up much of the business around it. I also build data engineering projects on my own.",
     ],
     link: { label: "More about me →", href: "/about" },
   },
@@ -70,9 +70,12 @@ const about: About = {
     ],
     cv: { label: "Download CV (PDF)", href: "/cv/JuanEsteban_Pelaez_CV.pdf" },
     paragraphs: [
-      "I'm Juan Esteban, a software engineer based in Helsinki.",
-      "I first got into programming during Mechanical Engineering, through projects with electronics, embedded systems and PLC automation. I moved to Finland and completed the Software Engineering programme at Hive Helsinki, where I built a Unix shell, an IRC server, a raycasting engine and a multiplayer backend from scratch, in C, C++ and Python.",
-      "After Hive I worked as a freelance software engineer for Arabian Fragrance, a perfume company in Helsinki. I built their online store end to end and ended up setting up a large part of the business around it. On my own, I build data engineering projects, like a pipeline on HSL's realtime transit data.",
+      "I am a software engineer based in Helsinki.",
+      "I came to software from Mechanical Engineering. Projects with electronics, embedded systems and PLC automation got me into programming, and engineering taught me to break a problem into parts before solving it.",
+      "I then moved to Finland and studied software engineering at Hive Helsinki, starting in C and C++ close to the operating system and moving on to web development and infrastructure. Knowing how each layer works helps me make sound decisions about the design and architecture of a system, and find out why something fails when it does.",
+      "Hive also changed how I approach problems. Each project came with a specification and strict constraints, the solution was mine to find, and other students reviewed it before it was accepted. I got used to learning whatever a problem requires, on my own or with a team.",
+      "After Hive I worked for over a year as a freelance software engineer for Arabian Fragrance, a perfume company in Helsinki. I was the only developer. I built and ran their online store, connected it with the physical shop, and helped set up much of the business around it.",
+      "Today I also build data engineering projects on my own, such as a pipeline on HSL’s realtime transit data.",
     ],
   },
   experience: {
