@@ -46,7 +46,7 @@ const home: Home = {
   aboutStrip: {
     title: "About",
     paragraphs: [
-      "At Hive Helsinki I studied software engineering, starting in C and C++ close to the operating system and moving on to web development and infrastructure. Knowing how each layer works, from memory and processes to networks and databases, helps me make sound decisions about how a system is designed and how its parts fit together. Hive also taught me to work through problems I have not seen before.",
+      "I studied Mechanical Engineering, where projects with electronics and embedded systems got me into programming. I then moved to Finland and studied software engineering at Hive Helsinki, starting in C and C++ close to the operating system and moving on to web development and infrastructure. Knowing how each layer works, from memory and processes to networks and databases, helps me make sound decisions about how a system is designed and how its parts fit together. Hive also taught me to work through problems I have not seen before.",
       "After Hive I worked for over a year as the only developer at Arabian Fragrance, a perfume company in Helsinki, where I built and ran their online store and helped set up much of the business around it. I also build data engineering projects on my own.",
     ],
     link: { label: "More about me →", href: "/about" },
