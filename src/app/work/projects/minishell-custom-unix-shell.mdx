@@ -1,6 +1,6 @@
 ---
 title: "Minishell"
-format: "short"
+format: "case-study"
 featured: false
 order: 5
 kind: "Team project"
@@ -8,26 +8,72 @@ tags:
   - "C"
   - "Unix"
 headline: "A Bash-like shell in C, built from scratch."
-cover: "/images/projects/minishell/cover.gif"
-images:
-  - src: "/images/projects/minishell/terminal.gif"
-    alt: "Terminal session chaining pipes, a redirection and Ctrl+C"
-summary:
-  - "Minishell is a small Unix shell modelled on Bash, written in C under strict constraints: a limited set of library functions and no external libraries."
-  - "I led the architectural design, built the pipe logic and hunted bugs across the codebase."
-highlights:
-  - title: "Parsing"
-    text: "A lexer that handles quotes and environment variable expansion."
-  - title: "Pipes and redirections"
-    text: "Chained commands and input, output and append redirections through file descriptors and Unix system calls."
-  - title: "Behaves like Bash"
-    text: "Ctrl+C, Ctrl+D and Ctrl+\\ handled like Bash, plus command history with the arrow keys. Tested against edge cases with no memory leaks, segfaults or freezes."
+cover: "/images/projects/minishell/cover.png"
+panel: "#ECE8E1"
+roleSummary: "Led the architecture, built the pipes and much of the core"
 stack:
   - "C"
-  - "fork and exec"
-  - "file descriptors"
+  - "fork and execve"
+  - "pipes and file descriptors"
   - "signals"
+  - "GNU Readline"
 links:
   - label: "Code on GitHub"
     url: "https://github.com/jestebanpelaez18/42Course-Minishell"
+hero:
+  diagram:
+    label: "What happens to every line you type"
+    steps:
+      - label: "Prompt"
+        title: "readline"
+        text: "Reads the line and keeps the history"
+      - label: "Check"
+        title: "Syntax check"
+        text: "Unclosed quotes and misplaced pipes"
+      - label: "Tokens"
+        title: "Tokenizer and expander"
+        text: "Words, pipes, redirections, $VAR and $?"
+      - label: "Parse"
+        title: "Command list"
+        text: "Each command with its arguments and redirections"
+      - label: "Run"
+        title: "Executor"
+        text: "Builtins in the shell, other programs with fork and execve, joined by pipes"
+        dark: true
+    footnote: "Then the prompt comes back, with $? holding the exit status of the last command."
+summary:
+  - "Minishell is a small Unix shell modelled on Bash and written in C. It reads a command line, works out what it means and runs it: programs found through PATH, pipes between them, redirections, environment variables and the shell's own builtins."
+  - "The project had strict rules: only a short list of allowed functions, with GNU Readline for the prompt and history, and everything else written from scratch."
+highlights:
+  - title: "Quotes and variables"
+    text: "The tokenizer and expander handle single and double quotes, $VAR expansion and $? for the last exit status, following Bash's rules for which quotes expand."
+  - title: "Pipes and redirections"
+    text: "Commands are chained with pipes through file descriptors, with input, output, append and heredoc (<<) redirections."
+  - title: "Builtins in the right place"
+    text: "cd, export, unset and exit run inside the shell itself, because they change its state. Other commands run in a child process with fork and execve."
+  - title: "Behaves like Bash"
+    text: "Ctrl+C, Ctrl+D and Ctrl+\\ behave as in Bash, syntax errors are reported without crashing, and the shell runs with no memory leaks, segfaults or freezes."
+results:
+  - value: "5"
+    label: "Stages from typed line to running command"
+  - value: "4"
+    label: "Redirections: <, >, >> and the heredoc <<"
+  - value: "7"
+    label: "Builtins: echo, cd, pwd, export, unset, env and exit"
+sections:
+  - title: "Pipes, one file descriptor at a time"
+    paragraphs:
+      - "For a pipeline like ls | grep src | wc -l, the shell creates a pipe between each pair of commands, forks a child for each one and connects their input and output before calling execve."
+      - "Every unused end of every pipe has to be closed. If one stays open, the next command keeps waiting for input that never arrives. Getting this right across pipes, redirections and builtins is the core of the executor."
+    image:
+      src: "/images/projects/minishell/terminal.gif"
+      alt: "Terminal session chaining pipes, a redirection and Ctrl+C"
+    imageSide: "right"
+    dark: true
+contributionsTitle: "My role"
+contributions:
+  - "The architecture of the shell and how its stages fit together"
+  - "Pipes and the execution of pipelines"
+  - "Large parts of the parser, expander and executor"
+  - "Testing edge cases and hunting bugs across the codebase"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "IRC Server"
-format: "short"
+format: "case-study"
 featured: false
 order: 4
 kind: "Team project"
@@ -9,25 +9,73 @@ tags:
   - "Networking"
 headline: "A multi-client chat server in C++ on a single poll() loop."
 cover: "/images/projects/irc/cover-01.png"
-images:
-  - src: "/images/projects/irc/cover-03.png"
-    alt: "Two irssi clients chatting in #football on the server"
-summary:
-  - "An IRC server built from scratch in C++, following the IRC protocol and tested against irssi as the reference client."
-  - "It runs without forking: a single poll() call handles every read, write and listen across all connected clients."
-highlights:
-  - title: "Many clients at once"
-    text: "Non-blocking I/O and signal handling keep connections stable across multiple simultaneous clients."
-  - title: "The full login flow"
-    text: "PASS, NICK and USER with proper connection lifecycle management."
-  - title: "Channels and operators"
-    text: "JOIN, PART, PRIVMSG, TOPIC, KICK, INVITE and MODE, with invite-only channels, topic restrictions, channel keys, operator privileges and user limits."
+panel: "#E4EADF"
+roleSummary: "Several of the commands, and the poll() loop together with the team"
+team: "3 people"
 stack:
   - "C++"
   - "TCP/IP sockets"
   - "poll()"
   - "Linux"
+  - "irssi"
 links:
   - label: "Code on GitHub"
     url: "https://github.com/jestebanpelaez18/ft_irc"
+hero:
+  diagram:
+    label: "How the server handles every client"
+    steps:
+      - label: "Clients"
+        title: "irssi"
+        text: "Connect over TCP/IP, IPv4 or IPv6"
+      - label: "Server loop"
+        title: "One poll() call"
+        text: "Watches the listening socket and every client socket"
+        dark: true
+      - stack:
+          - label: "New connection"
+            title: "accept()"
+            text: "Non-blocking socket added to the poll set"
+          - label: "Incoming data"
+            title: "recv() and parse"
+            text: "Each line becomes a command, its parameters and a trailing message"
+      - label: "Commands"
+        title: "14 IRC commands"
+        text: "Login, messages, channels and operator commands"
+    footnote: "No forking and no blocking calls: one process serves every connection, up to 32 clients."
+summary:
+  - "IRC is a text-based chat protocol: clients connect to a server, pick a nickname, join channels and send messages to a channel or to one person. This project is an IRC server written from scratch in C++, tested against irssi as the reference client."
+  - "The rules were strict: no forking, every socket non-blocking, and a single poll() call for all reading, writing and new connections. One slow or broken client must never stop the others."
+highlights:
+  - title: "One loop for everything"
+    text: "A single poll() call watches the listening socket and every client. New connections, incoming messages and disconnects are all handled in the same loop."
+  - title: "Protocol parsing"
+    text: "Each incoming line is split into the command, its parameters and the trailing message, following the IRC message format, and answered with the protocol's numeric replies."
+  - title: "Channels and operators"
+    text: "Channel operators can KICK, INVITE, set the TOPIC and change channel modes: invite-only, topic lock, channel key, operator rights and user limit."
+  - title: "Built for a real client"
+    text: "The login flow (CAP, PASS, NICK and USER) and the welcome replies follow what irssi expects, so it connects and chats without errors."
+results:
+  - value: "1"
+    label: "poll() call for every socket"
+  - value: "14"
+    label: "IRC commands implemented"
+  - value: "5"
+    label: "Channel modes: i, t, k, o and l"
+  - value: "32"
+    label: "Clients connected at the same time"
+sections:
+  - title: "Tested with a real client"
+    paragraphs:
+      - "The reference client was irssi. With several clients connected at once, we checked that a message reaches every member of a channel, a private message reaches only its target, and operator commands behave as the protocol describes."
+    image:
+      src: "/images/projects/irc/cover-03.png"
+      alt: "Two irssi clients chatting in #football on the server"
+    imageSide: "left"
+    dark: true
+contributionsTitle: "My role"
+contributions:
+  - "Implemented several of the IRC commands"
+  - "Worked with the team on the poll() loop and connection handling"
+  - "Tested the server against irssi with several clients connected"
 ---

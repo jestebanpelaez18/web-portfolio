@@ -1,6 +1,6 @@
 ---
 title: "Cub3D"
-format: "short"
+format: "case-study"
 featured: false
 order: 8
 kind: "Team project"
@@ -8,19 +8,10 @@ tags:
   - "C"
   - "Graphics"
 headline: "A first-person raycasting engine in C."
-cover: "/images/projects/cub3d/cover.gif"
-images:
-  - src: "/images/projects/cub3d/gameplay.gif"
-    alt: "Walking through a textured maze in first person"
-summary:
-  - "A first-person 3D view rendered from a 2D map, written in C from scratch."
-highlights:
-  - title: "Raycasting with DDA"
-    text: "The DDA algorithm calculates wall intersections in real time for every column of the screen."
-  - title: "Its own map format"
-    text: "A custom parser for the map files, with full structural validation before anything renders."
-  - title: "Textures and movement"
-    text: "Textures through the MLX42 graphics library, built with CMake, and player movement and rotation with vector math."
+cover: "/images/projects/cub3d/cover.png"
+panel: "#EEE5DE"
+roleSummary: "Most of the engine, from the map parser to rendering"
+team: "2 people"
 stack:
   - "C"
   - "MLX42"
@@ -28,4 +19,57 @@ stack:
 links:
   - label: "Code on GitHub"
     url: "https://github.com/jestebanpelaez18/Cub3d"
+hero:
+  diagram:
+    label: "How each frame is drawn"
+    steps:
+      - label: "Map"
+        title: ".cub file"
+        text: "Textures, colours and the grid, validated first"
+      - label: "Rays"
+        title: "One ray per column"
+        text: "From the player's direction and the camera plane"
+      - label: "DDA"
+        title: "Grid traversal"
+        text: "Steps square by square until it hits a wall"
+      - label: "Wall slice"
+        title: "Height and texture"
+        text: "Distance sets the height, the wall side picks the texture"
+      - label: "Frame"
+        title: "Drawn with MLX42"
+        text: "Ceiling, floor and walls, every frame"
+        dark: true
+    footnote: "Movement and rotation update the player, and the next frame is cast again."
+summary:
+  - "Cub3D draws a 3D-looking maze from a flat 2D map, the technique used by early first-person games. It is written in C, with MLX42 for the window, keyboard input and textures."
+  - "For every column of the screen, the engine casts a ray from the player, finds the first wall it hits and draws a vertical slice of wall whose height depends on the distance."
+highlights:
+  - title: "DDA raycasting"
+    text: "Rays step through the map grid square by square with the DDA algorithm, so finding the wall takes only a few steps per column."
+  - title: "No fisheye"
+    text: "Wall height uses the perpendicular distance to the camera plane instead of the straight-line distance, which keeps walls straight at the edges of the screen."
+  - title: "Textured walls"
+    text: "Each wall side (north, south, east and west) has its own texture, and the exact point where the ray hits the wall picks the column of the texture to draw."
+  - title: "A strict map parser"
+    text: "The .cub file is parsed and validated before anything renders: texture paths, floor and ceiling colours, and a map fully closed by walls."
+results:
+  - value: "1"
+    label: "Ray cast per screen column, every frame"
+  - value: "4"
+    label: "Wall textures, one per direction"
+sections:
+  - title: "Walking around"
+    paragraphs:
+      - "W, A, S and D move and strafe, and the arrow keys rotate the view. Rotation turns both the direction vector and the camera plane, and every move checks the map first, so the player cannot walk through walls."
+    image:
+      src: "/images/projects/cub3d/gameplay.gif"
+      alt: "Walking through a textured maze in first person"
+    imageSide: "left"
+    dark: true
+contributionsTitle: "My role"
+contributions:
+  - "Parser and validation for the .cub map format"
+  - "The raycasting engine: DDA, distances and texture mapping"
+  - "Player movement and rotation"
+  - "Integration with MLX42, built with CMake"
 ---
