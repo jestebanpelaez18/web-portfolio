@@ -19,9 +19,7 @@ export const SelectedWork = ({ headingLevel = "h2" }: SelectedWorkProps) => {
   const projects = getProjects();
   const featured = projects.filter((p) => p.metadata.featured);
   const others = projects.filter((p) => !p.metadata.featured);
-  const caseStudies = projects.filter((p) => p.metadata.format === "case-study").length;
-  const shorts = projects.length - caseStudies;
-  const summary = `${count(caseStudies, "case study", "case studies")} · ${count(shorts, "project", "projects")}`;
+  const summary = count(projects.length, "project", "projects");
   const Heading = headingLevel;
 
   return (
